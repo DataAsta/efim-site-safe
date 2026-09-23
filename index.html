@@ -631,18 +631,15 @@
             color: rgba(255, 255, 255, 0.7);
         }
 
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-            align-items: start;
-            margin-top: 20px;
+        .contact-info {
+            max-width: 700px;
         }
 
         .contact-info h3 {
             font-size: 1.4rem;
             font-weight: 600;
             margin-bottom: 16px;
+            color: white;
         }
 
         .contact-info p {
@@ -655,6 +652,16 @@
             font-size: 1.2rem;
             font-weight: 600;
             color: white;
+        }
+
+        .contact-info .email a {
+            color: white;
+            text-decoration: none;
+            transition: 0.2s;
+        }
+
+        .contact-info .email a:hover {
+            color: #b87333;
         }
 
         .contact-links {
@@ -676,79 +683,6 @@
 
         .contact-links a:hover {
             background: rgba(255, 255, 255, 0.2);
-        }
-
-        /* ----- КНОПКИ СВЯЗИ (вместо формы) ----- */
-        .contact-cta {
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-            padding: 8px 0;
-        }
-
-        .contact-cta-title {
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: white;
-            margin-bottom: 8px;
-        }
-
-        .contact-cta-sub {
-            font-size: 0.95rem;
-            color: rgba(255, 255, 255, 0.7);
-            margin-bottom: 8px;
-        }
-
-        .contact-buttons {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .contact-btn {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            padding: 16px 24px;
-            border-radius: 14px;
-            background: rgba(255, 255, 255, 0.08);
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            color: white;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1rem;
-            transition: 0.2s;
-        }
-
-        .contact-btn:hover {
-            background: rgba(255, 255, 255, 0.15);
-            transform: translateY(-2px);
-            border-color: rgba(255, 255, 255, 0.25);
-        }
-
-        .contact-btn .contact-btn-icon {
-            font-size: 1.6rem;
-            width: 32px;
-            text-align: center;
-            flex-shrink: 0;
-        }
-
-        .contact-btn .contact-btn-text {
-            display: flex;
-            flex-direction: column;
-            gap: 2px;
-        }
-
-        .contact-btn .contact-btn-label {
-            font-size: 0.8rem;
-            font-weight: 400;
-            color: rgba(255, 255, 255, 0.6);
-        }
-
-        .contact-btn .contact-btn-value {
-            font-size: 1rem;
-            font-weight: 600;
-            color: white;
         }
 
         /* ----- ФУТЕР ----- */
@@ -783,10 +717,6 @@
             }
             .about-grid {
                 grid-template-columns: 1fr;
-            }
-            .contact-grid {
-                grid-template-columns: 1fr;
-                gap: 30px;
             }
             .stats-grid {
                 grid-template-columns: repeat(3, 1fr);
@@ -902,7 +832,7 @@
                 <a href="#contact">Контакты</a>
             </nav>
             <div class="header-actions">
-                <span class="email-header">miftakhutdinovaan@yandex.ru</span>
+                <span class="email-header">efim365@yandex.ru</span>
                 <a href="#contact" class="btn-primary">Связаться</a>
             </div>
         </div>
@@ -1114,67 +1044,29 @@
         </div>
     </section>
 
-    <!-- ===== КОНТАКТЫ (без формы — только прямые контакты) ===== -->
+    <!-- ===== КОНТАКТЫ ===== -->
     <section class="contact" id="contact">
         <div class="container">
             <h2 class="section-title">Давайте обсудим ваш проект</h2>
             <p class="section-sub">Выберите удобный способ связи — ответим быстро и по делу.</p>
-            <div class="contact-grid">
-                <div class="contact-info">
-                    <h3>Контакты</h3>
-                    <p><strong>Почта:</strong></p>
-                    <p class="email">miftakhutdinovaan@yandex.ru</p>
-                    <p style="margin-top: 20px;"><strong>Связаться в мессенджерах:</strong></p>
-                    <div class="contact-links">
-                        <a href="https://t.me/EFIM365" target="_blank">💬 Telegram</a>
-                        <a href="https://rutube.ru/channel/42955504" target="_blank">📺 Rutube</a>
-                        <a href="https://vk.com/efzagrebin" target="_blank">🐦 VK</a>
-                    </div>
-                    <p style="margin-top: 20px; font-size: 0.9rem; opacity: 0.6;">
-                        Также веду <a href="https://www.youtube.com/@efim365" target="_blank" style="color: rgba(255,255,255,0.8); text-decoration: underline;">YouTube</a>-канал с обучающими стримами.
-                    </p>
+            <div class="contact-info">
+                <h3>Контакты</h3>
+                <p><strong>Почта:</strong></p>
+                <p class="email"><a href="mailto:efim365@yandex.ru">efim365@yandex.ru</a></p>
+                <p style="margin-top: 20px;"><strong>Связаться в мессенджерах:</strong></p>
+                <div class="contact-links">
+                    <a href="https://t.me/EFIM365" target="_blank">💬 Telegram</a>
+                    <a href="https://rutube.ru/channel/42955504" target="_blank">📺 Rutube</a>
+                    <a href="https://vk.com/efzagrebin" target="_blank">🐦 VK</a>
                 </div>
-
-                <!-- Прямые способы связи -->
-                <div class="contact-cta">
-                    <div class="contact-cta-title">Напишите нам напрямую</div>
-                    <div class="contact-cta-sub">Самый быстрый способ — мессенджеры. Отвечаем в течение рабочего дня.</div>
-                    <div class="contact-buttons">
-                        <a href="https://t.me/EFIM365" target="_blank" class="contact-btn">
-                            <span class="contact-btn-icon">💬</span>
-                            <span class="contact-btn-text">
-                                <span class="contact-btn-label">Написать в</span>
-                                <span class="contact-btn-value">Telegram</span>
-                            </span>
-                        </a>
-                        <a href="https://wa.me/79123456789" target="_blank" class="contact-btn">
-                            <span class="contact-btn-icon">📱</span>
-                            <span class="contact-btn-text">
-                                <span class="contact-btn-label">Написать в</span>
-                                <span class="contact-btn-value">WhatsApp</span>
-                            </span>
-                        </a>
-                        <a href="mailto:miftakhutdinovaan@yandex.ru" class="contact-btn">
-                            <span class="contact-btn-icon">✉️</span>
-                            <span class="contact-btn-text">
-                                <span class="contact-btn-label">Написать на почту</span>
-                                <span class="contact-btn-value">miftakhutdinovaan@yandex.ru</span>
-                            </span>
-                        </a>
-                        <a href="https://rutube.ru/channel/42955504" target="_blank" class="contact-btn">
-                            <span class="contact-btn-icon">📺</span>
-                            <span class="contact-btn-text">
-                                <span class="contact-btn-label">Смотреть на</span>
-                                <span class="contact-btn-value">Rutube</span>
-                            </span>
-                        </a>
-                    </div>
-                </div>
+                <p style="margin-top: 20px; font-size: 0.9rem; opacity: 0.6;">
+                    Также веду <a href="https://www.youtube.com/@efim365" target="_blank" style="color: rgba(255,255,255,0.8); text-decoration: underline;">YouTube</a>-канал с обучающими стримами.
+                </p>
             </div>
         </div>
     </section>
 
-    <!-- ===== ФУТЕР (без ссылки на политику) ===== -->
+    <!-- ===== ФУТЕР ===== -->
     <footer>
         <div class="container footer-inner">
             <span>© ИП Загребин Е.И.</span>
