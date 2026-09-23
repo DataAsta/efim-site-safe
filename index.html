@@ -1,0 +1,1166 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EFIM365 — внедрение ELMA365</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #fafcff;
+            color: #1e293b;
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ----- ШАПКА ----- */
+        header {
+            padding: 16px 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(8px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+        }
+
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 700;
+            font-size: 1.4rem;
+            color: #0b2c47;
+            text-decoration: none;
+        }
+
+        .logo img {
+            height: 66px;
+            width: auto;
+            border-radius: 10px;
+            display: block;
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+            flex-wrap: wrap;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: #1e293b;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+
+        .nav-menu a:hover {
+            color: #0b2c47;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1.5px solid #0b2c47;
+            color: #0b2c47;
+            padding: 8px 20px;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: 0.2s;
+            text-decoration: none;
+        }
+
+        .btn-outline:hover {
+            background: #0b2c47;
+            color: white;
+        }
+
+        .btn-primary {
+            background: #0b2c47;
+            border: none;
+            color: white;
+            padding: 10px 28px;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: 0.25s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            background: #1a4b6d;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(11, 44, 71, 0.2);
+        }
+
+        .email-header {
+            font-size: 0.9rem;
+            color: #475569;
+            font-weight: 500;
+        }
+
+        /* ----- ГЛАВНЫЙ ЭКРАН ----- */
+        .hero {
+            padding: 60px 0 80px;
+            background: linear-gradient(160deg, #f8fafc 0%, #eef2f6 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-content h1 {
+            font-size: 3.2rem;
+            font-weight: 800;
+            line-height: 1.15;
+            color: #0b2c47;
+            margin-bottom: 16px;
+            letter-spacing: -0.02em;
+        }
+
+        .hero-content h1 span {
+            color: #b87333;
+        }
+
+        .hero-content .subtitle {
+            font-size: 1.2rem;
+            color: #475569;
+            max-width: 520px;
+            margin-bottom: 32px;
+            font-weight: 400;
+            line-height: 1.6;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(11, 44, 71, 0.08);
+            padding: 6px 18px;
+            border-radius: 30px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #0b2c47;
+            letter-spacing: 0.3px;
+            margin-bottom: 18px;
+            text-decoration: none;
+            transition: 0.2s;
+        }
+
+        .hero-badge:hover {
+            background: rgba(11, 44, 71, 0.15);
+        }
+
+        .hero-actions {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .hero-image img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 30px 60px rgba(11, 44, 71, 0.12);
+            aspect-ratio: 4/3;
+            object-fit: cover;
+        }
+
+        /* ----- ЦИФРЫ ----- */
+        .stats {
+            padding: 50px 0;
+            background: white;
+            border-top: 1px solid #eef2f6;
+            border-bottom: 1px solid #eef2f6;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 20px;
+            text-align: center;
+        }
+
+        .stat-item .number {
+            font-size: 2.4rem;
+            font-weight: 800;
+            color: #0b2c47;
+            line-height: 1;
+        }
+
+        .stat-item .number .plus {
+            color: #e53935;
+        }
+
+        .stat-item .label {
+            font-size: 0.85rem;
+            color: #475569;
+            margin-top: 4px;
+            font-weight: 400;
+        }
+
+        /* ----- УСЛУГИ ----- */
+        .services {
+            padding: 80px 0 90px;
+            background: #fafcff;
+        }
+
+        .section-title {
+            font-size: 2.4rem;
+            font-weight: 700;
+            color: #0b2c47;
+            margin-bottom: 12px;
+            letter-spacing: -0.01em;
+        }
+
+        .section-sub {
+            font-size: 1.1rem;
+            color: #475569;
+            max-width: 600px;
+            margin-bottom: 48px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 24px;
+        }
+
+        .service-card {
+            background: white;
+            padding: 28px 20px;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+            border: 1px solid #eef2f6;
+            transition: 0.25s;
+            text-align: center;
+        }
+
+        .service-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 40px rgba(11, 44, 71, 0.06);
+            border-color: #cbd5e1;
+        }
+
+        .service-card .icon {
+            font-size: 2.2rem;
+            margin-bottom: 12px;
+            display: block;
+            color: #e53935;
+        }
+
+        .service-card h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #0b2c47;
+            margin-bottom: 6px;
+        }
+
+        .service-card p {
+            color: #475569;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        /* ----- КЛИЕНТЫ ----- */
+        .clients {
+            padding: 60px 0;
+            background: white;
+            border-top: 1px solid #eef2f6;
+            border-bottom: 1px solid #eef2f6;
+            overflow: hidden;
+        }
+
+        .clients-wrapper {
+            margin-top: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .clients-track {
+            display: flex;
+            gap: 30px;
+            animation: scrollClients 35s linear infinite;
+            width: max-content;
+        }
+
+        .clients-track:hover {
+            animation-play-state: paused;
+        }
+
+        .client-item {
+            flex: 0 0 auto;
+            width: 210px;
+            height: 175px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #eef2f6;
+            border-radius: 16px;
+            border: none;
+            padding: 0;
+            transition: 0.2s;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+        }
+
+        .client-item:hover {
+            transform: scale(1.02);
+        }
+
+        .client-item.white-bg {
+            background: white;
+            border: 2px solid #eef2f6;
+        }
+
+        .client-item.white-bg:hover {
+            background: #f8fafc;
+        }
+
+        .client-item.bg-f6 {
+            background: #0B1A30;
+        }
+        .client-item.bg-f6:hover {
+            background: #06101e;
+        }
+
+        .client-item.bg-auxo {
+            background: #000000;
+        }
+        .client-item.bg-auxo:hover {
+            background: #1a1a1a;
+        }
+
+        .client-item.bg-rogos {
+            background: #000000;
+        }
+        .client-item.bg-rogos:hover {
+            background: #1a1a1a;
+        }
+
+        .client-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+            border-radius: 16px;
+        }
+
+        @keyframes scrollClients {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* ----- КЕЙС ПАРТНЁРА ----- */
+        .case {
+            padding: 80px 0;
+            background: #fafcff;
+        }
+
+        .case-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 8px 30px rgba(11, 44, 71, 0.06);
+            border: 1px solid #eef2f6;
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 40px;
+            align-items: center;
+            transition: 0.25s;
+        }
+
+        .case-card:hover {
+            box-shadow: 0 16px 50px rgba(11, 44, 71, 0.1);
+            border-color: #cbd5e1;
+        }
+
+        .case-logo {
+            background: #0B1A30;
+            border-radius: 16px;
+            padding: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            aspect-ratio: 1/1;
+        }
+
+        .case-logo img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            display: block;
+        }
+
+        .case-content h3 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #0b2c47;
+            margin-bottom: 12px;
+            letter-spacing: -0.01em;
+        }
+
+        .case-content p {
+            font-size: 1rem;
+            color: #475569;
+            line-height: 1.7;
+            margin-bottom: 12px;
+        }
+
+        .case-content .highlight {
+            font-weight: 600;
+            color: #b87333;
+        }
+
+        .case-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 12px;
+            color: #0b2c47;
+            font-weight: 600;
+            text-decoration: none;
+            border-bottom: 2px solid #b87333;
+            padding-bottom: 2px;
+            transition: 0.2s;
+        }
+
+        .case-link:hover {
+            color: #b87333;
+        }
+
+        /* ----- ПРЕИМУЩЕСТВА ----- */
+        .advantages {
+            padding: 70px 0;
+            background: #fafcff;
+        }
+
+        .advantages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 10px;
+        }
+
+        .adv-item {
+            text-align: center;
+            padding: 16px;
+        }
+
+        .adv-item .icon {
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+            display: block;
+            color: #e53935;
+        }
+
+        .adv-item h4 {
+            font-weight: 700;
+            color: #0b2c47;
+            margin-bottom: 4px;
+            font-size: 1rem;
+        }
+
+        .adv-item p {
+            font-size: 0.9rem;
+            color: #475569;
+            line-height: 1.5;
+        }
+
+        /* ----- О ЕФИМЕ ----- */
+        .about {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 20px 50px rgba(11, 44, 71, 0.08);
+            aspect-ratio: 1/1;
+            object-fit: cover;
+        }
+
+        .about-content h2 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #0b2c47;
+            margin-bottom: 4px;
+        }
+
+        .about-content .role {
+            font-size: 1rem;
+            font-weight: 500;
+            color: #b87333;
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        .about-content p {
+            font-size: 1rem;
+            color: #1e293b;
+            line-height: 1.7;
+            margin-bottom: 12px;
+        }
+
+        .about-content .highlight {
+            font-weight: 600;
+            color: #b87333;
+        }
+
+        .about-content .link {
+            color: #0b2c47;
+            font-weight: 600;
+            text-decoration: underline;
+            transition: 0.2s;
+        }
+
+        .about-content .link:hover {
+            color: #b87333;
+        }
+
+        /* стили для раскрывающегося блока с опытом */
+        .details-block {
+            margin-top: 12px;
+            border: 1px solid #eef2f6;
+            border-radius: 12px;
+            padding: 8px 16px 16px 16px;
+            background: #fafcff;
+        }
+        .details-block summary {
+            font-weight: 600;
+            color: #0b2c47;
+            cursor: pointer;
+            padding: 8px 0;
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 1rem;
+        }
+        .details-block summary::-webkit-details-marker {
+            display: none;
+        }
+        .details-block summary::before {
+            content: "▶";
+            font-size: 0.8rem;
+            color: #b87333;
+            transition: transform 0.2s;
+        }
+        .details-block[open] summary::before {
+            transform: rotate(90deg);
+        }
+
+        .experience-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+            margin-top: 8px;
+        }
+        .experience-table th,
+        .experience-table td {
+            padding: 8px 12px;
+            text-align: left;
+            border-bottom: 1px solid #eef2f6;
+        }
+        .experience-table th {
+            background: #f1f5f9;
+            font-weight: 600;
+            color: #0b2c47;
+        }
+        .experience-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* ----- КОНТАКТЫ ----- */
+        .contact {
+            padding: 80px 0 90px;
+            background: #0b2c47;
+            color: white;
+        }
+
+        .contact .section-title {
+            color: white;
+        }
+
+        .contact .section-sub {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: start;
+            margin-top: 20px;
+        }
+
+        .contact-info h3 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .contact-info p {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 10px;
+        }
+
+        .contact-info .email {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: white;
+        }
+
+        .contact-links {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .contact-links a {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px 24px;
+            border-radius: 40px;
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.2s;
+        }
+
+        .contact-links a:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        /* ----- ФОРМА (Яндекс Формы через iframe) ----- */
+        .contact-form-wrapper {
+            background: white;
+            border-radius: 16px;
+            padding: 0;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            min-height: 480px;
+        }
+
+        .contact-form-wrapper iframe {
+            width: 100% !important;
+            height: 480px;
+            border: none;
+            display: block;
+        }
+
+        /* ----- ФУТЕР ----- */
+        footer {
+            padding: 28px 0;
+            background: #082133;
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 0.85rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.04);
+        }
+
+        .footer-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .footer-inner a {
+            color: rgba(255, 255, 255, 0.3);
+            text-decoration: none;
+        }
+
+        .footer-inner a:hover {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* ----- АДАПТИВ ----- */
+        @media (max-width: 992px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .hero-content h1 {
+                font-size: 2.6rem;
+            }
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            .stats-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 15px;
+            }
+            .client-item {
+                width: 170px;
+                height: 145px;
+            }
+            .case-card {
+                grid-template-columns: 1fr;
+                gap: 24px;
+                padding: 32px 24px;
+            }
+            .case-logo {
+                max-width: 160px;
+                margin: 0 auto;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .header-inner {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 8px;
+            }
+            .nav-menu {
+                justify-content: center;
+                gap: 16px;
+            }
+            .header-actions {
+                justify-content: center;
+            }
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+            .stats-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 12px;
+            }
+            .stat-item .number {
+                font-size: 1.8rem;
+            }
+            .services-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .section-title {
+                font-size: 1.8rem;
+            }
+            .hero {
+                padding: 40px 0 60px;
+            }
+            .logo img {
+                height: 50px;
+            }
+            .clients-track {
+                gap: 16px;
+            }
+            .client-item {
+                width: 130px;
+                height: 110px;
+            }
+            .advantages-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .case-card {
+                padding: 24px 20px;
+            }
+            .case-content h3 {
+                font-size: 1.3rem;
+            }
+        }
+
+        @media (max-width: 420px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            .stats-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .nav-menu a {
+                font-size: 0.8rem;
+            }
+            .advantages-grid {
+                grid-template-columns: 1fr;
+            }
+            .client-item {
+                width: 110px;
+                height: 90px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== ШАПКА ===== -->
+    <header>
+        <div class="container header-inner">
+            <a href="#" class="logo">
+                <img src="Лого.jpg" alt="EFIM365" />
+                EFIM365
+            </a>
+            <nav class="nav-menu">
+                <a href="#services">Услуги</a>
+                <a href="#clients">Клиенты</a>
+                <a href="#case">Кейс</a>
+                <a href="#about">О Ефиме</a>
+                <a href="#contact">Контакты</a>
+            </nav>
+            <div class="header-actions">
+                <span class="email-header">miftakhutdinovaan@yandex.ru</span>
+                <a href="#contact" class="btn-primary">Связаться</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- ===== ГЛАВНЫЙ ЭКРАН ===== -->
+    <section class="hero">
+        <div class="container hero-grid">
+            <div class="hero-content">
+                <a href="https://elma365.com/ru/partners/efim-365/" target="_blank" class="hero-badge">
+                    ⚡ Сертифицированный партнёр ELMA365
+                </a>
+                <h1>Сложные задачи — <br /><span>простые решения</span></h1>
+                <p class="subtitle">
+                    Внедряем ELMA365 без бюрократии. Более 6 лет экспертизы, 20+ реализованных проектов.
+                    Работаем на результат.
+                </p>
+                <div class="hero-actions">
+                    <a href="#contact" class="btn-primary">Обсудить проект →</a>
+                    <a href="https://t.me/EFIM365" target="_blank" class="btn-outline">Telegram-канал</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="Шапка.png" alt="Горы — символ преодоления" loading="lazy" />
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ЦИФРЫ ===== -->
+    <section class="stats">
+        <div class="container stats-grid">
+            <div class="stat-item">
+                <div class="number">6<span class="plus">+</span></div>
+                <div class="label">лет опыта с ELMA365</div>
+            </div>
+            <div class="stat-item">
+                <div class="number">20<span class="plus">+</span></div>
+                <div class="label">клиентов</div>
+            </div>
+            <div class="stat-item">
+                <div class="number">9<span class="plus">+</span></div>
+                <div class="label">крупных компаний</div>
+            </div>
+            <div class="stat-item">
+                <div class="number">1000<span class="plus">+</span></div>
+                <div class="label">подписчиков в Telegram</div>
+            </div>
+            <div class="stat-item">
+                <div class="number">7<span class="plus">+</span></div>
+                <div class="label">разработчиков в команде</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== УСЛУГИ ===== -->
+    <section class="services" id="services">
+        <div class="container">
+            <h2 class="section-title">Ваши задачи — наши решения</h2>
+            <p class="section-sub">Экспертиза в низкокодовой автоматизации — от идеи до работающей системы</p>
+            <div class="services-grid">
+                <div class="service-card">
+                    <span class="icon">💻</span>
+                    <h3>Разработка решений</h3>
+                    <p>Создаём функционал, которого нет в «коробке». Максимально быстро, грамотно и надёжно.</p>
+                </div>
+                <div class="service-card">
+                    <span class="icon">🚀</span>
+                    <h3>Автоматизация «под ключ»</h3>
+                    <p>CRM, документооборот, клиентский сервис, порталы — без лишней бюрократии.</p>
+                </div>
+                <div class="service-card">
+                    <span class="icon">👷</span>
+                    <h3>Архитектура</h3>
+                    <p>Проектируем архитектуру решений, ревью, оптимизация и масштабирование.</p>
+                </div>
+                <div class="service-card">
+                    <span class="icon">⚙️</span>
+                    <h3>DevOps</h3>
+                    <p>Развертывание, настройка инфраструктуры, CI/CD, мониторинг и отказоустойчивость.</p>
+                </div>
+                <div class="service-card">
+                    <span class="icon">🎓</span>
+                    <h3>Обучение</h3>
+                    <p>Обучаем вашу команду работе с ELMA365, проводим индивидуальные занятия и консультации.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== КЛИЕНТЫ ===== -->
+    <section class="clients" id="clients">
+        <div class="container">
+            <h2 class="section-title">Компании<span class="comma">,</span></h2>
+            <p class="section-sub">которые доверили нам свою автоматизацию</p>
+            <div class="clients-wrapper">
+                <div class="clients-track">
+                    <!-- Первый набор -->
+                    <div class="client-item bg-f6"><img src="f6.png" alt="F6" /></div>
+                    <div class="client-item white-bg"><img src="МИТТУ.jpeg" alt="КАМАЗ (МИТТУ)" /></div>
+                    <div class="client-item white-bg"><img src="Камаз.jpg" alt="КАМАЗ" /></div>
+                    <div class="client-item bg-auxo"><img src="Auxo.jpg" alt="AUXO" /></div>
+                    <div class="client-item white-bg"><img src="dostavista.png" alt="Достависта" /></div>
+                    <div class="client-item white-bg"><img src="ПИС.jpg" alt="НПО ПИС" /></div>
+                    <div class="client-item white-bg"><img src="трайдент.png" alt="Трайдент ИСТ" /></div>
+                    <div class="client-item bg-rogos"><img src="Рогос.jpg" alt="Рогос" /></div>
+                    <div class="client-item white-bg"><img src="Красцветмет.jpg" alt="КрасЦветмед" /></div>
+                    <div class="client-item white-bg"><img src="РМК.png" alt="РМК" /></div>
+                    <!-- Дублируем для бесконечности -->
+                    <div class="client-item bg-f6"><img src="f6.png" alt="F6" /></div>
+                    <div class="client-item white-bg"><img src="МИТТУ.jpeg" alt="КАМАЗ (МИТТУ)" /></div>
+                    <div class="client-item white-bg"><img src="Камаз.jpg" alt="КАМАЗ" /></div>
+                    <div class="client-item bg-auxo"><img src="Auxo.jpg" alt="AUXO" /></div>
+                    <div class="client-item white-bg"><img src="dostavista.png" alt="Достависта" /></div>
+                    <div class="client-item white-bg"><img src="ПИС.jpg" alt="НПО ПИС" /></div>
+                    <div class="client-item white-bg"><img src="трайдент.png" alt="Трайдент ИСТ" /></div>
+                    <div class="client-item bg-rogos"><img src="Рогос.jpg" alt="Рогос" /></div>
+                    <div class="client-item white-bg"><img src="Красцветмет.jpg" alt="КрасЦветмед" /></div>
+                    <div class="client-item white-bg"><img src="РМК.png" alt="РМК" /></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== КЕЙС ПАРТНЁРА ===== -->
+    <section class="case" id="case">
+        <div class="container">
+            <h2 class="section-title">Кейс партнёра</h2>
+            <p class="section-sub">Как мы помогли F6 запустить собственную экосистему коммуникаций на ELMA365</p>
+            <div class="case-card">
+                <div class="case-logo">
+                    <img src="f6.png" alt="F6" />
+                </div>
+                <div class="case-content">
+                    <h3>F6 — экосистема коммерческих и партнёрских коммуникаций</h3>
+                    <p>
+                        Мы спроектировали и внедрили для F6 партнёрский портал и внутренний портал 
+                        на платформе ELMA365. Проект объединил коммерческие и партнёрские коммуникации 
+                        компании в единую экосистему.
+                    </p>
+                    <p>
+                        <span class="highlight">Ефим Загребин</span> выступил техническим архитектором проекта — 
+                        от проработки архитектуры до запуска и передачи в эксплуатацию.
+                    </p>
+                    <a href="https://www.cnews.ru/news/line/2026-07-22_f6_zapustila_sobstvennuyu" target="_blank" class="case-link">
+                        Читать кейс на CNews →
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ПРЕИМУЩЕСТВА ===== -->
+    <section class="advantages" id="advantages">
+        <div class="container">
+            <h2 class="section-title">Почему выбирают нас</h2>
+            <p class="section-sub">Работаем с возражениями, которые у вас уже могли возникнуть</p>
+            <div class="advantages-grid">
+                <div class="adv-item">
+                    <span class="icon">👨‍💼</span>
+                    <h4>Без бюрократии</h4>
+                    <p>Внедряем быстрее больших интеграторов. <strong>Вы работаете</strong> напрямую с экспертом.</p>
+                </div>
+                <div class="adv-item">
+                    <span class="icon">⚡</span>
+                    <h4>Система не тормозит</h4>
+                    <p>Решения разработаны с учётом особенностей платформы <strong>заказчика</strong>.</p>
+                </div>
+                <div class="adv-item">
+                    <span class="icon">🎯</span>
+                    <h4>Только нужные доработки</h4>
+                    <p>На 95% используем функционал «из коробки». Это дешевле и надёжнее.</p>
+                </div>
+                <div class="adv-item">
+                    <span class="icon">📞</span>
+                    <h4>Всегда на связи</h4>
+                    <p>Ведём проект лично. Поддерживаем после внедрения. Клиенты становятся партнёрами.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== О ЕФИМЕ ===== -->
+    <section class="about" id="about">
+        <div class="container about-grid">
+            <div class="about-image">
+                <img src="Ефим.jpg" alt="Ефим Загребин" loading="lazy" />
+            </div>
+            <div class="about-content">
+                <h2>Ефим Загребин</h2>
+                <span class="role">TeamLead</span>
+                <p>
+                    Эксперт, который любит решать <span class="highlight">сложные задачи</span>.
+                </p>
+                <p>
+                    В работе ценю здравый смысл и результат.
+                </p>
+                <p>
+                    Веду крупнейший канал сообщества ELMA365 в 
+                    <a href="https://t.me/EFIM365" target="_blank" class="link">Telegram</a> и на 
+                    <a href="https://rutube.ru/channel/42955504" target="_blank" class="link">Rutube</a>, 
+                    где делюсь реальным опытом, отвечаю на сложные вопросы и провожу прямые эфиры с вендором.
+                </p>
+                <p>
+                    <strong>Мой подход:</strong> без бюрократии, зато с глубокой экспертизой и личной ответственностью за проект.
+                </p>
+
+                <!-- Раскрывающийся блок: Опыт работы -->
+                <details class="details-block">
+                    <summary>💻 Опыт работы</summary>
+                    <table class="experience-table">
+                        <thead>
+                            <tr>
+                                <th>Период</th>
+                                <th>Компании</th>
+                                <th>Должность</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>с ноября 2024</td>
+                                <td>EFIM365</td>
+                                <td>Самозанятость</td>
+                            </tr>
+                            <tr>
+                                <td>февраль 2024 — ноябрь 2024</td>
+                                <td>МТС Digital</td>
+                                <td>Team Lead (ELMA365)</td>
+                            </tr>
+                            <tr>
+                                <td>июнь 2023 — февраль 2024</td>
+                                <td>Codexoptimus</td>
+                                <td>Senior low-code developer (ELMA365)</td>
+                            </tr>
+                            <tr>
+                                <td>январь 2021 — июнь 2023</td>
+                                <td>Elma</td>
+                                <td>Team Lead (ELMA365)</td>
+                            </tr>
+                            <tr>
+                                <td>декабрь 2019 — январь 2021</td>
+                                <td>Elma</td>
+                                <td>Low-code developer (ELMA365)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== КОНТАКТЫ (форма Яндекс Формы) ===== -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">Хотите обсудить проект?</h2>
+            <p class="section-sub">Напишите — мы всегда на связи. Отвечаем быстро и по делу.</p>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>Контакты</h3>
+                    <p><strong>Почта:</strong></p>
+                    <p class="email">miftakhutdinovaan@yandex.ru</p>
+                    <p style="margin-top: 20px;"><strong>Связаться в мессенджерах:</strong></p>
+                    <div class="contact-links">
+                        <a href="https://t.me/EFIM365" target="_blank">💬 Telegram</a>
+                        <a href="https://rutube.ru/channel/42955504" target="_blank">📺 Rutube</a>
+                        <a href="https://vk.com/efzagrebin" target="_blank">🐦 VK</a>
+                    </div>
+                    <p style="margin-top: 20px; font-size: 0.9rem; opacity: 0.6;">
+                        Также веду YouTube-канал с обучающими стримами.
+                    </p>
+                </div>
+
+                <!-- Форма Яндекс Формы -->
+                <div class="contact-form-wrapper">
+                    <iframe src="https://forms.yandex.ru/u/6aab84b402848f5681704097?iframe=1" frameborder="0" name="ya-form-6aab84b402848f5681704097"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ФУТЕР ===== -->
+    <footer>
+        <div class="container footer-inner">
+            <span>© ИП Загребин Е.И.</span>
+            <a href="#">Политика конфиденциальности</a>
+        </div>
+    </footer>
+
+    <!-- Скрипт Яндекс Форм (для корректной работы iframe) -->
+    <script src="https://forms.yandex.ru/_static/embed.js"></script>
+
+    <!-- Стили для увеличенной запятой -->
+    <style>
+        .comma {
+            font-size: 1.2rem;
+            opacity: 1;
+            margin-left: -0.05em;
+        }
+    </style>
+
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href === '#') return;
+                e.preventDefault();
+                const target = document.querySelector(href);
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
