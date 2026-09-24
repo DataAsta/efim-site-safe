@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>EFIM365 — внедрение ELMA365 без бюрократии</title>
 
-    <meta name="description" content="EFIM365 — сертифицированный партнёр ELMA365. Внедряем низкокодовую автоматизацию без бюрократии: CRM, документооборот, порталы, интеграции. Более 7 лет опыта, 20+ проектов." />
+    <meta name="description" content="EFIM365 — сертифицированный партнёр ELMA365. Внедряем низкокодовую автоматизацию без бюрократии: CRM, документооборот, порталы, интеграции. Более 7 лет опыта." />
     <meta name="keywords" content="ELMA365, внедрение ELMA365, low-code, автоматизация бизнеса, CRM, документооборот, EFIM365, Загребин, партнёр ELMA365" />
 
     <meta property="og:title" content="EFIM365 — внедрение ELMA365" />
@@ -23,7 +23,7 @@
 
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: #fafcff;
+            background: #ffffff;
             color: #1e293b;
             line-height: 1.5;
             -webkit-font-smoothing: antialiased;
@@ -53,7 +53,7 @@
             text-decoration: none; color: #1e293b; font-weight: 500;
             font-size: 0.95rem; transition: color 0.2s;
         }
-        .nav-menu a:hover { color: #1a1a1a; }
+        .nav-menu a:hover { color: #e53935; }
         .header-actions { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
         .btn-outline {
             background: transparent; border: 1.5px solid #1a1a1a; color: #1a1a1a;
@@ -68,15 +68,15 @@
             text-decoration: none; display: inline-block;
         }
         .btn-primary:hover {
-            background: #333333; transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(26, 26, 26, 0.2);
+            background: #e53935; transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(229, 57, 53, 0.25);
         }
         .email-header { font-size: 0.9rem; color: #475569; font-weight: 500; }
 
-        /* ----- ГЛАВНЫЙ ЭКРАН ----- */
+        /* ----- ГЛАВНЫЙ ЭКРАН (градиент: серый → белый) ----- */
         .hero {
             padding: 60px 0 80px;
-            background: linear-gradient(160deg, #f8fafc 0%, #eef2f6 100%);
+            background: linear-gradient(160deg, #ececec 0%, #f5f5f5 40%, #ffffff 100%);
             position: relative; overflow: hidden;
         }
         .hero-grid {
@@ -98,12 +98,12 @@
             font-weight: 600; color: #1a1a1a; letter-spacing: 0.3px;
             margin-bottom: 18px; text-decoration: none; transition: 0.2s;
         }
-        .hero-badge:hover { background: rgba(26, 26, 26, 0.15); }
+        .hero-badge:hover { background: rgba(229, 57, 53, 0.12); color: #e53935; }
         .hero-actions { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
         .hero-image {
             width: 100%; aspect-ratio: 4/3;
             border-radius: 20px; overflow: hidden;
-            box-shadow: 0 30px 60px rgba(26, 26, 26, 0.12);
+            box-shadow: 0 30px 60px rgba(26, 26, 26, 0.15);
         }
         .hero-image img {
             width: 100%; height: 100%; object-fit: cover; display: block;
@@ -112,7 +112,7 @@
         /* ----- ЦИФРЫ ----- */
         .stats {
             padding: 50px 0; background: white;
-            border-top: 1px solid #eef2f6; border-bottom: 1px solid #eef2f6;
+            border-top: 1px solid #f0f0f0; border-bottom: 1px solid #f0f0f0;
         }
         .stats-grid {
             display: grid; grid-template-columns: repeat(4, 1fr);
@@ -127,7 +127,7 @@
         }
 
         /* ----- УСЛУГИ ----- */
-        .services { padding: 80px 0 90px; background: #fafcff; }
+        .services { padding: 80px 0 90px; background: #fafafa; }
         .section-title {
             font-size: 2.4rem; font-weight: 700; color: #1a1a1a;
             margin-bottom: 12px; letter-spacing: -0.01em;
@@ -141,23 +141,24 @@
         }
         .service-card {
             background: white; padding: 28px 20px; border-radius: 16px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
-            border: 1px solid #eef2f6; transition: 0.25s; text-align: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+            border: 1px solid #f0f0f0; transition: 0.25s; text-align: center;
         }
         .service-card:hover {
             transform: translateY(-6px);
-            box-shadow: 0 16px 40px rgba(26, 26, 26, 0.06);
-            border-color: #cbd5e1;
+            box-shadow: 0 16px 40px rgba(26, 26, 26, 0.08);
+            border-color: #e0e0e0;
         }
+        /* ЗАГОЛОВКИ В КАРТОЧКАХ УСЛУГ — КРАСНЫЕ */
         .service-card h3 {
-            font-size: 1.1rem; font-weight: 700; color: #1a1a1a; margin-bottom: 8px;
+            font-size: 1.1rem; font-weight: 700; color: #e53935; margin-bottom: 8px;
         }
         .service-card p { color: #475569; font-size: 0.9rem; line-height: 1.5; }
 
         /* ----- КЛИЕНТЫ ----- */
         .clients {
             padding: 60px 0; background: white;
-            border-top: 1px solid #eef2f6; border-bottom: 1px solid #eef2f6;
+            border-top: 1px solid #f0f0f0; border-bottom: 1px solid #f0f0f0;
         }
         .clients-grid {
             display: grid; grid-template-columns: repeat(4, 1fr);
@@ -167,13 +168,13 @@
         .client-item {
             width: 100%; height: 175px;
             display: flex; align-items: center; justify-content: center;
-            background: #eef2f6; border-radius: 16px; border: none;
+            background: #f0f0f0; border-radius: 16px; border: none;
             padding: 0; transition: 0.2s;
             box-shadow: 0 2px 8px rgba(0,0,0,0.02);
         }
         .client-item:hover { transform: scale(1.02); }
-        .client-item.white-bg { background: white; border: 2px solid #eef2f6; }
-        .client-item.white-bg:hover { background: #f8fafc; }
+        .client-item.white-bg { background: white; border: 2px solid #f0f0f0; }
+        .client-item.white-bg:hover { background: #fafafa; }
         .client-item.bg-f6 { background: #0B1A30; }
         .client-item.bg-f6:hover { background: #06101e; }
         .client-item.bg-rogos { background: #000000; }
@@ -184,16 +185,16 @@
         }
 
         /* ----- КЕЙС ----- */
-        .case { padding: 60px 0 80px; background: #fafcff; }
+        .case { padding: 60px 0 80px; background: #fafafa; }
         .case-card {
             background: white; border-radius: 20px; padding: 40px;
             box-shadow: 0 8px 30px rgba(26, 26, 26, 0.06);
-            border: 1px solid #eef2f6;
+            border: 1px solid #f0f0f0;
             transition: 0.25s; margin-top: 8px;
         }
         .case-card:hover {
             box-shadow: 0 16px 50px rgba(26, 26, 26, 0.1);
-            border-color: #cbd5e1;
+            border-color: #e0e0e0;
         }
         .case-content h3 {
             font-size: 1.6rem; font-weight: 700; color: #1a1a1a;
@@ -211,18 +212,19 @@
         .case-link:hover { color: #e53935; }
 
         /* ----- ПРЕИМУЩЕСТВА ----- */
-        .advantages { padding: 70px 0; background: #fafcff; }
+        .advantages { padding: 70px 0; background: #fafafa; }
         .advantages-grid {
             display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 30px;
         }
         .adv-item { text-align: center; padding: 16px; }
+        /* ЗАГОЛОВКИ В БЛОКАХ ПРЕИМУЩЕСТВ — КРАСНЫЕ */
         .adv-item h4 {
-            font-weight: 700; color: #1a1a1a; margin-bottom: 8px; font-size: 1.05rem;
+            font-weight: 700; color: #e53935; margin-bottom: 8px; font-size: 1.05rem;
         }
         .adv-item p { font-size: 0.95rem; color: #475569; line-height: 1.5; }
 
-        /* ----- ОБО МНЕ ----- */
+        /* ----- О СПЕЦИАЛИСТЕ ----- */
         .about { padding: 80px 0; background: white; }
         .about-grid {
             display: grid; grid-template-columns: 1fr 1fr;
@@ -230,7 +232,7 @@
         }
         .about-image img {
             width: 100%; border-radius: 20px;
-            box-shadow: 0 20px 50px rgba(26, 26, 26, 0.08);
+            box-shadow: 0 20px 50px rgba(26, 26, 26, 0.1);
             aspect-ratio: 3/4; object-fit: cover;
             object-position: center 15%;
         }
@@ -252,8 +254,8 @@
 
         /* ----- ОПЫТ РАБОТЫ ----- */
         .experience-block {
-            margin-top: 20px; border: 1px solid #eef2f6;
-            border-radius: 12px; padding: 16px 20px 20px 20px; background: #fafcff;
+            margin-top: 20px; border: 1px solid #f0f0f0;
+            border-radius: 12px; padding: 16px 20px 20px 20px; background: #fafafa;
         }
         .experience-block .experience-title {
             font-weight: 700; color: #1a1a1a; margin-bottom: 12px; font-size: 1.05rem;
@@ -262,17 +264,17 @@
             width: 100%; border-collapse: collapse; font-size: 0.9rem;
         }
         .experience-table th, .experience-table td {
-            padding: 8px 12px; text-align: left; border-bottom: 1px solid #eef2f6;
+            padding: 8px 12px; text-align: left; border-bottom: 1px solid #f0f0f0;
         }
         .experience-table th {
-            background: #f1f5f9; font-weight: 600; color: #1a1a1a;
+            background: #f5f5f5; font-weight: 600; color: #1a1a1a;
         }
         .experience-table tr:last-child td { border-bottom: none; }
 
-        /* ----- КОНТАКТЫ ----- */
+        /* ----- КОНТАКТЫ (градиент: чёрный → серый) ----- */
         .contact {
             padding: 40px 0 45px;
-            background: #0b2c47;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 50%, #1a1a1a 100%);
             color: white;
         }
         .contact .section-title {
@@ -301,17 +303,22 @@
             display: flex; gap: 14px; flex-wrap: wrap;
         }
         .contact-links a {
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.12);
             padding: 10px 24px; border-radius: 40px; color: white;
             text-decoration: none; font-weight: 500; transition: 0.2s;
         }
-        .contact-links a:hover { background: rgba(255, 255, 255, 0.2); }
+        .contact-links a:hover {
+            background: #e53935;
+            border-color: #e53935;
+            transform: translateY(-2px);
+        }
 
-        /* ----- ФУТЕР ----- */
+        /* ----- ФУТЕР (чёрный) ----- */
         footer {
-            padding: 28px 0; background: #082133;
+            padding: 28px 0; background: #0a0a0a;
             color: rgba(255, 255, 255, 0.5); font-size: 0.85rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.04);
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
         }
         .footer-inner {
             display: flex; flex-direction: column; gap: 8px; align-items: center;
@@ -372,7 +379,7 @@
                 <a href="#services">Услуги</a>
                 <a href="#clients">Клиенты</a>
                 <a href="#case">Кейс</a>
-                <a href="#about">Обо мне</a>
+                <a href="#about">О специалисте</a>
                 <a href="#contact">Контакты</a>
             </nav>
             <div class="header-actions">
@@ -392,7 +399,7 @@
                 <h1>Сложные задачи — <br /><span>простые решения</span></h1>
                 <p class="subtitle">
                     Внедряем ELMA365 без бюрократии.<br />
-                    Более 7 лет экспертизы, 20+ реализованных проектов.<br />
+                    Более 7 лет экспертизы.<br />
                     Работаем на результат.
                 </p>
                 <div class="hero-actions">
@@ -521,7 +528,7 @@
         </div>
     </section>
 
-    <!-- ===== ОБО МНЕ ===== -->
+    <!-- ===== О СПЕЦИАЛИСТЕ ===== -->
     <section class="about" id="about">
         <div class="container about-grid">
             <div class="about-image">
@@ -559,7 +566,7 @@
                         </thead>
                         <tbody>
                             <tr><td>с ноября 2024</td><td>EFIM365</td><td>Директор</td></tr>
-                            <tr><td>2024-2024</td><td>МТС Digital</td><td>Team Lead (ELMA365)</td></tr>
+                            <tr><td>2024</td><td>МТС Digital</td><td>Team Lead (ELMA365)</td></tr>
                             <tr><td>2023-2024</td><td>Codexoptimus</td><td>Senior low-code developer (ELMA365)</td></tr>
                             <tr><td>2021-2023</td><td>Elma</td><td>Team Lead (ELMA365)</td></tr>
                             <tr><td>2019-2021</td><td>Elma</td><td>Low-code developer (ELMA365)</td></tr>
@@ -605,7 +612,6 @@
     </footer>
 
     <script>
-        // Плавный скролл по якорям
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 const href = this.getAttribute('href');
