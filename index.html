@@ -204,11 +204,8 @@
         }
         .case-content .highlight { font-weight: 600; color: #e53935; }
         .case-links {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 10px;
-            margin-top: 12px;
+            display: flex; flex-direction: column;
+            align-items: flex-start; gap: 10px; margin-top: 12px;
         }
         .case-link {
             display: inline-flex; align-items: center; gap: 8px;
@@ -276,73 +273,90 @@
         }
         .experience-table tr:last-child td { border-bottom: none; }
 
-        /* ----- КОНТАКТЫ ----- */
+        /* ----- КОНТАКТЫ + ФУТЕР (единый градиент) ----- */
+        .contact-footer-wrapper {
+            background: linear-gradient(180deg,
+                #ffffff 0%,
+                #d9d9d9 6%,
+                #c62828 12%,
+                #e53935 40%,
+                #8b1a1a 70%,
+                #0a0a0a 100%);
+        }
+
         .contact {
-            padding: 40px 0 45px;
-            background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 50%, #1a1a1a 100%);
+            padding: 60px 0 45px;
             color: white;
         }
+
         .contact .section-title {
             color: white; font-size: 1.8rem; margin-bottom: 8px;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
         }
+
         .contact .section-sub {
-            color: rgba(255, 255, 255, 0.7); font-size: 1rem; margin-bottom: 24px;
+            color: rgba(255, 255, 255, 0.85); font-size: 1rem; margin-bottom: 24px;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
         }
+
         .contact-grid {
             display: grid; grid-template-columns: 1fr 1fr; gap: 60px;
         }
+
         .contact-col h3 {
             font-size: 1.2rem; font-weight: 600; margin-bottom: 16px;
             color: white;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
         }
+
         .contact-email {
             font-size: 1.2rem; font-weight: 600; color: white;
             margin-bottom: 16px;
         }
+
         .contact-email a {
             color: white; text-decoration: none; transition: 0.2s;
             border-bottom: 1px solid transparent;
         }
-        .contact-email a:hover { color: #e53935; border-bottom-color: #e53935; }
+
+        .contact-email a:hover { color: #1a1a1a; border-bottom-color: #1a1a1a; }
+
         .contact-links {
             display: flex; gap: 14px; flex-wrap: wrap;
         }
+
         .contact-links a {
-            background: rgba(255, 255, 255, 0.08);
-            border: 1px solid rgba(255, 255, 255, 0.12);
+            background: rgba(255, 255, 255, 0.12);
+            border: 1px solid rgba(255, 255, 255, 0.2);
             padding: 10px 24px; border-radius: 40px; color: white;
             text-decoration: none; font-weight: 500; transition: 0.2s;
         }
+
         .contact-links a:hover {
-            background: #e53935;
-            border-color: #e53935;
+            background: #1a1a1a;
+            border-color: #1a1a1a;
             transform: translateY(-2px);
         }
 
-        /* ----- ФУТЕР (градиент: белый → красный → чёрный) ----- */
         footer {
             padding: 40px 0 50px;
-            background: linear-gradient(180deg,
-                #d9d9d9 0%,
-                #c62828 15%,
-                #e53935 30%,
-                #8b1a1a 60%,
-                #2a0a0a 85%,
-                #0a0a0a 100%);
             color: rgba(255, 255, 255, 0.75);
             font-size: 0.85rem;
         }
+
         .footer-inner {
             display: flex; flex-direction: column; gap: 8px; align-items: center;
             text-align: center;
         }
+
         .footer-inner span {
-            color: rgba(255, 255, 255, 0.85);
-            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+            color: rgba(255, 255, 255, 0.9);
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
         }
+
         .footer-inner .footer-legal {
             font-size: 0.9rem;
-            color: rgba(255, 255, 255, 0.9);
+            color: rgba(255, 255, 255, 0.95);
         }
 
         /* ----- АДАПТИВ ----- */
@@ -598,39 +612,42 @@
         </div>
     </section>
 
-    <!-- ===== КОНТАКТЫ ===== -->
-    <section class="contact" id="contact">
-        <div class="container">
-            <h2 class="section-title">Давайте обсудим ваш проект</h2>
-            <p class="section-sub">Выберите удобный способ связи — ответим быстро и по делу.</p>
-            <div class="contact-grid">
-                <div class="contact-col">
-                    <h3>Контакты</h3>
-                    <p class="contact-email">
-                        <a href="mailto:efim365@yandex.ru">efim365@yandex.ru</a>
-                    </p>
-                    <div class="contact-links">
-                        <a href="https://t.me/EFIM365?direct" target="_blank">Telegram</a>
+    <!-- ===== КОНТАКТЫ + ФУТЕР (единый градиент) ===== -->
+    <div class="contact-footer-wrapper">
+
+        <section class="contact" id="contact">
+            <div class="container">
+                <h2 class="section-title">Давайте обсудим ваш проект</h2>
+                <p class="section-sub">Выберите удобный способ связи — ответим быстро и по делу.</p>
+                <div class="contact-grid">
+                    <div class="contact-col">
+                        <h3>Контакты</h3>
+                        <p class="contact-email">
+                            <a href="mailto:efim365@yandex.ru">efim365@yandex.ru</a>
+                        </p>
+                        <div class="contact-links">
+                            <a href="https://t.me/EFIM365?direct" target="_blank">Telegram</a>
+                        </div>
                     </div>
-                </div>
-                <div class="contact-col">
-                    <h3>О нас</h3>
-                    <div class="contact-links">
-                        <a href="https://www.youtube.com/@efim365" target="_blank">YouTube</a>
-                        <a href="https://rutube.ru/channel/42955504" target="_blank">Rutube</a>
+                    <div class="contact-col">
+                        <h3>О нас</h3>
+                        <div class="contact-links">
+                            <a href="https://www.youtube.com/@efim365" target="_blank">YouTube</a>
+                            <a href="https://rutube.ru/channel/42955504" target="_blank">Rutube</a>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- ===== ФУТЕР ===== -->
-    <footer>
-        <div class="container footer-inner">
-            <span>© ИП Загребин Е.И.</span>
-            <span class="footer-legal">ОГРНИП 324180000087018, ИНН 183402706300</span>
-        </div>
-    </footer>
+        <footer>
+            <div class="container footer-inner">
+                <span>© ИП Загребин Е.И.</span>
+                <span class="footer-legal">ОГРНИП 324180000087018, ИНН 183402706300</span>
+            </div>
+        </footer>
+
+    </div>
 
     <script>
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
