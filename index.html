@@ -73,7 +73,7 @@
         }
         .email-header { font-size: 0.9rem; color: #475569; font-weight: 500; }
 
-        /* ----- ГЛАВНЫЙ ЭКРАН (градиент: серый → белый) ----- */
+        /* ----- ГЛАВНЫЙ ЭКРАН ----- */
         .hero {
             padding: 60px 0 80px;
             background: linear-gradient(160deg, #ececec 0%, #f5f5f5 40%, #ffffff 100%);
@@ -149,7 +149,6 @@
             box-shadow: 0 16px 40px rgba(26, 26, 26, 0.08);
             border-color: #e0e0e0;
         }
-        /* ЗАГОЛОВКИ В КАРТОЧКАХ УСЛУГ — КРАСНЫЕ */
         .service-card h3 {
             font-size: 1.1rem; font-weight: 700; color: #e53935; margin-bottom: 8px;
         }
@@ -204,8 +203,15 @@
             font-size: 1rem; color: #475569; line-height: 1.7; margin-bottom: 12px;
         }
         .case-content .highlight { font-weight: 600; color: #e53935; }
+        .case-links {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 10px;
+            margin-top: 12px;
+        }
         .case-link {
-            display: inline-flex; align-items: center; gap: 8px; margin-top: 12px;
+            display: inline-flex; align-items: center; gap: 8px;
             color: #1a1a1a; font-weight: 600; text-decoration: none;
             border-bottom: 2px solid #e53935; padding-bottom: 2px; transition: 0.2s;
         }
@@ -218,7 +224,6 @@
             gap: 30px;
         }
         .adv-item { text-align: center; padding: 16px; }
-        /* ЗАГОЛОВКИ В БЛОКАХ ПРЕИМУЩЕСТВ — КРАСНЫЕ */
         .adv-item h4 {
             font-weight: 700; color: #e53935; margin-bottom: 8px; font-size: 1.05rem;
         }
@@ -271,7 +276,7 @@
         }
         .experience-table tr:last-child td { border-bottom: none; }
 
-        /* ----- КОНТАКТЫ (градиент: чёрный → серый) ----- */
+        /* ----- КОНТАКТЫ ----- */
         .contact {
             padding: 40px 0 45px;
             background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 50%, #1a1a1a 100%);
@@ -314,19 +319,30 @@
             transform: translateY(-2px);
         }
 
-        /* ----- ФУТЕР (чёрный) ----- */
+        /* ----- ФУТЕР (градиент: белый → красный → чёрный) ----- */
         footer {
-            padding: 28px 0; background: #0a0a0a;
-            color: rgba(255, 255, 255, 0.5); font-size: 0.85rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            padding: 40px 0 50px;
+            background: linear-gradient(180deg,
+                #d9d9d9 0%,
+                #c62828 15%,
+                #e53935 30%,
+                #8b1a1a 60%,
+                #2a0a0a 85%,
+                #0a0a0a 100%);
+            color: rgba(255, 255, 255, 0.75);
+            font-size: 0.85rem;
         }
         .footer-inner {
             display: flex; flex-direction: column; gap: 8px; align-items: center;
             text-align: center;
         }
+        .footer-inner span {
+            color: rgba(255, 255, 255, 0.85);
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+        }
         .footer-inner .footer-legal {
-            color: rgba(255, 255, 255, 0.6);
             font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.9);
         }
 
         /* ----- АДАПТИВ ----- */
@@ -495,9 +511,14 @@
                         <span class="highlight">Ефим Загребин</span> выступил техническим архитектором проекта — 
                         от проработки архитектуры до запуска и передачи в эксплуатацию.
                     </p>
-                    <a href="https://elma365.com/ru/success-stories/f6/" target="_blank" class="case-link">
-                        История успеха →
-                    </a>
+                    <div class="case-links">
+                        <a href="https://elma365.com/ru/success-stories/f6/" target="_blank" class="case-link">
+                            История успеха →
+                        </a>
+                        <a href="https://www.cnews.ru/news/line/2026-07-22_f6_zapustila_sobstvennuyu" target="_blank" class="case-link">
+                            Читать текст на CNews →
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
