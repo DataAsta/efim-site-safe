@@ -163,6 +163,17 @@
             padding: 60px 0; background: white;
             border-top: 1px solid #f0f0f0; border-bottom: 1px solid #f0f0f0;
         }
+        .clients .section-title {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            gap: 8px;
+        }
+        .clients .title-sub {
+            font-size: 1.1rem;
+            font-weight: 400;
+            color: #475569;
+        }
         .clients-grid {
             display: grid; grid-template-columns: repeat(4, 1fr);
             gap: 30px; margin-top: 20px;
@@ -230,6 +241,7 @@
             border-radius: 16px;
             padding: 28px 22px;
             transition: 0.25s;
+            text-align: center;
         }
         .adv-item:hover {
             transform: translateY(-6px);
@@ -253,13 +265,11 @@
             align-items: center;
             gap: 24px;
         }
-        .about-image img {
+        .profile-photo {
             width: 70%;
             max-width: 320px;
             border-radius: 20px;
             box-shadow: 0 20px 50px rgba(26, 26, 26, 0.1);
-        }
-        .about-image img:first-child {
             aspect-ratio: 3/4;
             object-fit: cover;
             object-position: center 15%;
@@ -327,22 +337,29 @@
         /* ----- ОПЫТ РАБОТЫ ----- */
         .experience-block {
             margin-top: 24px; border: 1px solid #f0f0f0;
-            border-radius: 12px; padding: 16px 20px 20px 20px; background: white;
+            border-radius: 12px; padding: 20px 24px 24px 24px; background: white;
         }
         .experience-block .experience-title {
-            font-weight: 700; color: #1a1a1a; margin-bottom: 12px; font-size: 1.05rem;
+            font-weight: 700; color: #1a1a1a; margin-bottom: 16px; font-size: 1.05rem;
         }
         .experience-table {
             width: 100%; border-collapse: collapse; font-size: 0.9rem;
+            table-layout: auto;
         }
         .experience-table th, .experience-table td {
-            padding: 8px 12px; text-align: left; border-bottom: 1px solid #f0f0f0;
+            padding: 10px 14px; text-align: left; border-bottom: 1px solid #f0f0f0;
+            vertical-align: middle;
         }
         .experience-table th {
             background: #f5f5f5; font-weight: 600; color: #1a1a1a;
         }
         .experience-table tr:last-child td { border-bottom: none; }
 
+        /* Первая колонка (Период) — всегда в одну строку */
+        .experience-table td:first-child,
+        .experience-table th:first-child {
+            white-space: nowrap;
+        }
         /* Длинная должность — в одну строку только на десктопе */
         @media (min-width: 601px) {
             .experience-table .nowrap-cell {
@@ -461,9 +478,9 @@
             .advantages-grid { grid-template-columns: 1fr; }
             .case-card { padding: 24px 20px; }
             .case-content h3 { font-size: 1.3rem; }
-            .experience-table { font-size: 0.8rem; }
+            .experience-table { font-size: 0.78rem; }
             .experience-table th, .experience-table td { padding: 6px 8px; }
-            .about-image img { width: 60%; }
+            .profile-photo { width: 60%; }
             .cert-link-wrapper { width: 85%; }
         }
         @media (max-width: 420px) {
@@ -578,8 +595,9 @@
     <!-- ===== КЛИЕНТЫ ===== -->
     <section class="clients" id="clients">
         <div class="container">
-            <h2 class="section-title">Компании<span class="comma">,</span></h2>
-            <p class="section-sub">которые доверили нам свою автоматизацию</p>
+            <h2 class="section-title">
+                Компании, <span class="title-sub">которые доверили нам свою автоматизацию</span>
+            </h2>
             <div class="clients-grid">
                 <div class="client-item bg-f6"><img src="f6.png" alt="F6" /></div>
                 <div class="client-item white-bg"><img src="МИТТУ.jpeg" alt="КАМАЗ (МИТТУ)" /></div>
@@ -651,7 +669,7 @@
     <section class="about" id="about">
         <div class="container about-grid">
             <div class="about-image">
-                <img src="Ефим.jpg" alt="Ефим Загребин" loading="lazy" />
+                <img src="Ефим.jpg" alt="Ефим Загребин" class="profile-photo" loading="lazy" />
                 <a href="Сертификат.jpg" target="_blank" class="cert-link-wrapper">
                     <img src="Сертификат.jpg" alt="Сертификат ELMA365" class="certificate-image" loading="lazy" />
                 </a>
