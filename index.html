@@ -85,12 +85,16 @@
         }
         .hero-content h1 {
             font-size: 3.2rem; font-weight: 800; line-height: 1.15;
-            color: #1a1a1a; margin-bottom: 16px; letter-spacing: -0.02em;
+            color: #1a1a1a; margin-bottom: 20px; letter-spacing: -0.02em;
         }
         .hero-content h1 span { color: #e53935; }
         .hero-content .subtitle {
-            font-size: 1.2rem; color: #475569; max-width: 520px;
-            margin-bottom: 32px; font-weight: 400; line-height: 1.6;
+            font-size: 1.15rem; color: #475569; max-width: 540px;
+            margin-bottom: 32px; font-weight: 400; line-height: 1.7;
+        }
+        .hero-content .subtitle strong {
+            color: #1a1a1a;
+            font-weight: 600;
         }
         .hero-badge {
             display: inline-block; background: rgba(26, 26, 26, 0.08);
@@ -126,7 +130,7 @@
             font-size: 1rem; color: #475569; margin-top: 8px; font-weight: 400;
         }
 
-        /* ----- УСЛУГИ ----- */
+        /* ----- РЕШЕНИЯ ДЛЯ ВАШЕГО БИЗНЕСА ----- */
         .services { padding: 80px 0 90px; background: #fafafa; }
         .section-title {
             font-size: 2.4rem; font-weight: 700; color: #1a1a1a;
@@ -136,7 +140,7 @@
             font-size: 1.1rem; color: #475569; max-width: 600px; margin-bottom: 48px;
         }
         .services-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
             gap: 24px;
         }
         .service-card {
@@ -150,7 +154,7 @@
             border-color: #e0e0e0;
         }
         .service-card h3 {
-            font-size: 1.1rem; font-weight: 700; color: #e53935; margin-bottom: 8px;
+            font-size: 1.1rem; font-weight: 700; color: #e53935; margin-bottom: 10px;
         }
         .service-card p { color: #475569; font-size: 0.9rem; line-height: 1.5; }
 
@@ -214,20 +218,31 @@
         }
         .case-link:hover { color: #e53935; }
 
-        /* ----- ПРЕИМУЩЕСТВА ----- */
-        .advantages { padding: 70px 0; background: #fafafa; }
+        /* ----- НАШ ПОДХОД К РАБОТЕ ----- */
+        .advantages { padding: 80px 0; background: white; }
         .advantages-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 24px;
         }
-        .adv-item { text-align: center; padding: 16px; }
+        .adv-item {
+            background: #fafafa;
+            border: 1px solid #f0f0f0;
+            border-radius: 16px;
+            padding: 28px 22px;
+            transition: 0.25s;
+        }
+        .adv-item:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 40px rgba(26, 26, 26, 0.08);
+            border-color: #e0e0e0;
+        }
         .adv-item h4 {
-            font-weight: 700; color: #e53935; margin-bottom: 8px; font-size: 1.05rem;
+            font-weight: 700; color: #e53935; margin-bottom: 10px; font-size: 1.05rem;
         }
-        .adv-item p { font-size: 0.95rem; color: #475569; line-height: 1.5; }
+        .adv-item p { font-size: 0.9rem; color: #475569; line-height: 1.6; }
 
-        /* ----- EFIM (О специалисте) ----- */
-        .about { padding: 80px 0; background: white; }
+        /* ----- EFIM ----- */
+        .about { padding: 80px 0; background: #fafafa; }
         .about-grid {
             display: grid; grid-template-columns: 1fr 1fr;
             gap: 50px; align-items: center;
@@ -249,15 +264,20 @@
             object-fit: cover;
             object-position: center 15%;
         }
-        .certificate-image {
+        .cert-link-wrapper {
+            display: block;
             width: 90%;
             max-width: 400px;
-            box-shadow: 0 10px 30px rgba(26, 26, 26, 0.12);
             transition: 0.25s;
         }
-        .certificate-image:hover {
+        .cert-link-wrapper:hover {
             transform: scale(1.02);
-            box-shadow: 0 16px 40px rgba(26, 26, 26, 0.18);
+        }
+        .certificate-image {
+            width: 100%;
+            box-shadow: 0 10px 30px rgba(26, 26, 26, 0.12);
+            border-radius: 12px;
+            display: block;
         }
 
         .about-content h2 {
@@ -265,21 +285,49 @@
         }
         .about-content .role {
             font-size: 1rem; font-weight: 500; color: #e53935;
-            margin-bottom: 16px; display: block;
+            margin-bottom: 20px; display: block;
         }
         .about-content p {
-            font-size: 1rem; color: #1e293b; line-height: 1.7; margin-bottom: 12px;
+            font-size: 1rem; color: #1e293b; line-height: 1.7; margin-bottom: 14px;
         }
         .about-content .highlight { font-weight: 600; color: #e53935; }
-        .about-content .link {
-            color: #1a1a1a; font-weight: 600; text-decoration: underline; transition: 0.2s;
+
+        /* ----- КАНАЛЫ (внутри EFIM) ----- */
+        .about-channels { margin-top: 28px; }
+        .channels-title {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 12px;
         }
-        .about-content .link:hover { color: #e53935; }
+        .channels-links {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .channel-link {
+            display: inline-block;
+            padding: 10px 22px;
+            border-radius: 40px;
+            background: white;
+            border: 1.5px solid #f0f0f0;
+            color: #1a1a1a;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: 0.2s;
+        }
+        .channel-link:hover {
+            background: #e53935;
+            border-color: #e53935;
+            color: white;
+            transform: translateY(-2px);
+        }
 
         /* ----- ОПЫТ РАБОТЫ ----- */
         .experience-block {
-            margin-top: 20px; border: 1px solid #f0f0f0;
-            border-radius: 12px; padding: 16px 20px 20px 20px; background: #fafafa;
+            margin-top: 24px; border: 1px solid #f0f0f0;
+            border-radius: 12px; padding: 16px 20px 20px 20px; background: white;
         }
         .experience-block .experience-title {
             font-weight: 700; color: #1a1a1a; margin-bottom: 12px; font-size: 1.05rem;
@@ -294,6 +342,13 @@
             background: #f5f5f5; font-weight: 600; color: #1a1a1a;
         }
         .experience-table tr:last-child td { border-bottom: none; }
+
+        /* Длинная должность — в одну строку только на десктопе */
+        @media (min-width: 601px) {
+            .experience-table .nowrap-cell {
+                white-space: nowrap;
+            }
+        }
 
         /* ----- КОНТАКТЫ + ФУТЕР (единый градиент) ----- */
         .contact-footer-wrapper {
@@ -310,36 +365,29 @@
             padding: 60px 0 45px;
             color: white;
         }
-
         .contact .section-title {
             color: white; font-size: 1.8rem; margin-bottom: 8px;
             text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
         }
-
         .contact .section-sub {
             color: rgba(255, 255, 255, 0.85); font-size: 1rem; margin-bottom: 24px;
             text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
         }
-
         .contact-grid {
             display: grid; grid-template-columns: 1fr 1fr; gap: 60px;
         }
-
         .contact-col h3 {
             font-size: 1.2rem; font-weight: 600; margin-bottom: 16px;
             color: white;
             text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
         }
-
         .contact-col-header {
             display: flex;
             align-items: center;
             gap: 16px;
             margin-bottom: 16px;
         }
-        .contact-col-header h3 {
-            margin-bottom: 0;
-        }
+        .contact-col-header h3 { margin-bottom: 0; }
         .contact-col-logo {
             height: 40px;
             width: auto;
@@ -347,30 +395,24 @@
             background: white;
             padding: 4px 8px;
         }
-
         .contact-email {
             font-size: 1.2rem; font-weight: 600; color: white;
             margin-bottom: 16px;
         }
-
         .contact-email a {
             color: white; text-decoration: none; transition: 0.2s;
             border-bottom: 1px solid transparent;
         }
-
         .contact-email a:hover { color: #1a1a1a; border-bottom-color: #1a1a1a; }
-
         .contact-links {
             display: flex; gap: 14px; flex-wrap: wrap;
         }
-
         .contact-links a {
             background: rgba(255, 255, 255, 0.12);
             border: 1px solid rgba(255, 255, 255, 0.2);
             padding: 10px 24px; border-radius: 40px; color: white;
             text-decoration: none; font-weight: 500; transition: 0.2s;
         }
-
         .contact-links a:hover {
             background: #1a1a1a;
             border-color: #1a1a1a;
@@ -382,17 +424,14 @@
             color: rgba(255, 255, 255, 0.75);
             font-size: 0.85rem;
         }
-
         .footer-inner {
             display: flex; flex-direction: column; gap: 8px; align-items: center;
             text-align: center;
         }
-
         .footer-inner span {
             color: rgba(255, 255, 255, 0.9);
             text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
         }
-
         .footer-inner .footer-legal {
             font-size: 0.9rem;
             color: rgba(255, 255, 255, 0.95);
@@ -419,19 +458,18 @@
             .logo img { height: 50px; }
             .clients-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
             .client-item { height: 120px; }
-            .advantages-grid { grid-template-columns: 1fr 1fr; }
+            .advantages-grid { grid-template-columns: 1fr; }
             .case-card { padding: 24px 20px; }
             .case-content h3 { font-size: 1.3rem; }
             .experience-table { font-size: 0.8rem; }
             .experience-table th, .experience-table td { padding: 6px 8px; }
             .about-image img { width: 60%; }
-            .certificate-image { width: 85%; }
+            .cert-link-wrapper { width: 85%; }
         }
         @media (max-width: 420px) {
             .services-grid { grid-template-columns: 1fr; }
             .stats-grid { grid-template-columns: 1fr 1fr; }
             .nav-menu a { font-size: 0.8rem; }
-            .advantages-grid { grid-template-columns: 1fr; }
         }
 
         .comma { font-size: 1.2rem; opacity: 1; margin-left: -0.05em; }
@@ -447,7 +485,7 @@
                 EFIM365
             </a>
             <nav class="nav-menu">
-                <a href="#services">Услуги</a>
+                <a href="#services">Решения</a>
                 <a href="#clients">Клиенты</a>
                 <a href="#case">Кейс</a>
                 <a href="#about">EFIM</a>
@@ -469,9 +507,10 @@
                 </a>
                 <h1>Сложные задачи — <br /><span>простые решения</span></h1>
                 <p class="subtitle">
-                    Внедряем ELMA365 без бюрократии.<br />
-                    Более 7 лет экспертизы.<br />
-                    Работаем на результат.
+                    <strong>Архитектор ELMA365, более 7 лет экспертизы.</strong><br />
+                    Собираю сильную команду и запускаю MVP в срок.<br />
+                    Лично веду каждый проект от архитектуры до запуска.<br />
+                    Остаюсь на связи и после сдачи — клиенты становятся партнёрами.
                 </p>
                 <div class="hero-actions">
                     <a href="#contact" class="btn-primary">Обсудить проект →</a>
@@ -489,44 +528,44 @@
         <div class="container stats-grid">
             <div class="stat-item">
                 <div class="number">7<span class="plus">+</span></div>
-                <div class="label">лет опыта с ELMA365</div>
-            </div>
-            <div class="stat-item">
-                <div class="number">20<span class="plus">+</span></div>
-                <div class="label">клиентов</div>
+                <div class="label">лет экспертизы ELMA365</div>
             </div>
             <div class="stat-item">
                 <div class="number">9<span class="plus">+</span></div>
-                <div class="label">крупных компаний</div>
+                <div class="label">крупных клиентов</div>
+            </div>
+            <div class="stat-item">
+                <div class="number">20<span class="plus">+</span></div>
+                <div class="label">компаний автоматизировано</div>
             </div>
             <div class="stat-item">
                 <div class="number">555<span class="plus">+</span></div>
-                <div class="label">подписчиков в Telegram</div>
+                <div class="label">участников сообщества EFIM365</div>
             </div>
         </div>
     </section>
 
-    <!-- ===== УСЛУГИ ===== -->
+    <!-- ===== РЕШЕНИЯ ДЛЯ ВАШЕГО БИЗНЕСА ===== -->
     <section class="services" id="services">
         <div class="container">
-            <h2 class="section-title">Ваши задачи — наши решения</h2>
-            <p class="section-sub">Экспертиза в низкокодовой автоматизации — от идеи до работающей системы</p>
+            <h2 class="section-title">Решения для вашего бизнеса</h2>
+            <p class="section-sub">Экспертиза полного цикла — от идеи до работающей системы</p>
             <div class="services-grid">
                 <div class="service-card">
                     <h3>Разработка решений</h3>
-                    <p>Создаём функционал, которого нет в «коробке». Максимально быстро, грамотно и надёжно.</p>
+                    <p>Создаём функционал, которого нет в «коробке». Максимально быстро, грамотно и надёжно. MVP от 2 недель.</p>
                 </div>
                 <div class="service-card">
-                    <h3>Автоматизация «под ключ»</h3>
-                    <p>CRM, документооборот, клиентский сервис, порталы — без лишней бюрократии.</p>
+                    <h3>Автоматизация процессов</h3>
+                    <p>CRM, документооборот, клиентский сервис, порталы. Настраиваем, запускаем, обучаем. Запуск от 3 недель.</p>
                 </div>
                 <div class="service-card">
                     <h3>Архитектура</h3>
-                    <p>Проектируем архитектуру решений, ревью, оптимизация и масштабирование.</p>
+                    <p>Разрабатываем архитектуру под ваш бизнес. Проводим ревью существующих решений, оптимизируем и готовим к росту. Ревью от 3 дней.</p>
                 </div>
                 <div class="service-card">
                     <h3>DevOps</h3>
-                    <p>Развертывание, настройка инфраструктуры, CI/CD, мониторинг и отказоустойчивость.</p>
+                    <p>Развертывание, настройка инфраструктуры, CI/CD, мониторинг и отказоустойчивость. Настройка от 1 недели.</p>
                 </div>
                 <div class="service-card">
                     <h3>Обучение</h3>
@@ -579,57 +618,68 @@
         </div>
     </section>
 
-    <!-- ===== ПРЕИМУЩЕСТВА ===== -->
+    <!-- ===== НАШ ПОДХОД К РАБОТЕ ===== -->
     <section class="advantages" id="advantages">
         <div class="container">
-            <h2 class="section-title">Почему выбирают нас</h2>
+            <h2 class="section-title">Наш подход к работе</h2>
             <div class="advantages-grid">
                 <div class="adv-item">
                     <h4>Без бюрократии</h4>
-                    <p>Внедряем быстрее больших интеграторов. <strong>Вы работаете</strong> напрямую с экспертом.</p>
+                    <p>Большие интеграторы — долго, дорого и много бюрократии. Внедряем на порядок быстрее, без потери качества. Работаем без бюрократии. Команда — небольшая, но профессиональная: прямое общение с экспертом, а не с менеджером по продажам.</p>
                 </div>
                 <div class="adv-item">
                     <h4>Система не тормозит</h4>
-                    <p>Решения разработаны с учётом особенностей платформы <strong>заказчика</strong>.</p>
+                    <p>Проектируем с учётом особенностей платформы и инфраструктуры заказчика. Грамотная архитектура — стабильная работа системы без «тормозов» и сбоев.</p>
                 </div>
                 <div class="adv-item">
                     <h4>Только нужные доработки</h4>
-                    <p>На 95% используем функционал «из коробки». Это дешевле и надёжнее.</p>
+                    <p>95% задач решаем стандартными средствами ELMA365. Кастомизация — только там, где она действительно нужна. Это дешевле, надёжнее и проще в поддержке.</p>
                 </div>
                 <div class="adv-item">
                     <h4>Всегда на связи</h4>
-                    <p>Ведём проект лично. Поддерживаем после внедрения. Клиенты становятся партнёрами.</p>
+                    <p>После сдачи проекта пропадают и не отвечают. Ведущий эксперт ведёт ваш проект лично. На связи и после внедрения — потому что наши клиенты часто становятся партнёрами и друзьями.</p>
+                </div>
+                <div class="adv-item">
+                    <h4>Команда под задачу</h4>
+                    <p>Не шаблонная команда, а специалисты под ваш проект: разработчики, аналитики, DevOps. Глубокая экспертиза в ELMA365, фиксированные сроки, личная ответственность за результат.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ===== EFIM (О специалисте) ===== -->
+    <!-- ===== EFIM ===== -->
     <section class="about" id="about">
         <div class="container about-grid">
             <div class="about-image">
                 <img src="Ефим.jpg" alt="Ефим Загребин" loading="lazy" />
-                <img src="Сертификат.jpg" alt="Сертификат ELMA365" class="certificate-image" loading="lazy" />
+                <a href="Сертификат.jpg" target="_blank" class="cert-link-wrapper">
+                    <img src="Сертификат.jpg" alt="Сертификат ELMA365" class="certificate-image" loading="lazy" />
+                </a>
             </div>
             <div class="about-content">
                 <h2>Ефим Загребин</h2>
-                <span class="role">Архитектор</span>
+                <span class="role">Архитектор ELMA365</span>
                 <p>
-                    Эксперт, который любит решать <span class="highlight">сложные задачи</span>.
+                    Превращаю сложные процессы в простые и понятные системы. Убеждён: хорошее решение — то, которое работает без моего постоянного участия.
                 </p>
                 <p>
-                    В работе ценю здравый смысл и результат.
+                    Начинал как разработчик, прошёл путь до архитектора ELMA365. Знаю платформу изнутри — поэтому вижу не только <span class="highlight">что</span> сделать, но <span class="highlight">как</span>, а самое главное — <span class="highlight">зачем</span>.
                 </p>
                 <p>
-                    Веду крупнейший канал сообщества ELMA365 в 
-                    <a href="https://t.me/EFIM365?direct" target="_blank" class="link">Telegram</a>, на 
-                    <a href="https://www.youtube.com/@efim365" target="_blank" class="link">YouTube</a> и 
-                    <a href="https://rutube.ru/channel/42955504" target="_blank" class="link">Rutube</a>, 
-                    где делюсь реальным опытом, отвечаю на сложные вопросы и провожу прямые эфиры с вендором.
+                    Люблю задачи, где нет готовых ответов. Чем нестандартнее вызов, тем интереснее находить решение.
                 </p>
                 <p>
-                    <strong>Мой подход:</strong> без бюрократии, зато с глубокой экспертизой и личной ответственностью за проект.
+                    Делюсь опытом открыто: провожу эфиры, разбираю кейсы, отвечаю на вопросы. Уверен, что знания должны работать на всё сообщество ELMA365.
                 </p>
+
+                <div class="about-channels">
+                    <p class="channels-title">Смотрите и читайте:</p>
+                    <div class="channels-links">
+                        <a href="https://t.me/EFIM365?direct" target="_blank" class="channel-link">Telegram</a>
+                        <a href="https://www.youtube.com/@efim365" target="_blank" class="channel-link">YouTube</a>
+                        <a href="https://rutube.ru/channel/42955504" target="_blank" class="channel-link">Rutube</a>
+                    </div>
+                </div>
 
                 <div class="experience-block">
                     <div class="experience-title">Опыт работы</div>
@@ -644,7 +694,7 @@
                         <tbody>
                             <tr><td>с ноября 2024</td><td>EFIM365</td><td>Основатель</td></tr>
                             <tr><td>2024</td><td>МТС Digital</td><td>Team Lead (ELMA365)</td></tr>
-                            <tr><td>2023-2024</td><td>Codexoptimus</td><td>Senior low-code developer (ELMA365)</td></tr>
+                            <tr><td>2023-2024</td><td>Codexoptimus</td><td class="nowrap-cell">Senior low-code developer (ELMA365)</td></tr>
                             <tr><td>2021-2023</td><td>Elma</td><td>Team Lead (ELMA365)</td></tr>
                             <tr><td>2019-2021</td><td>Elma</td><td>Low-code developer (ELMA365)</td></tr>
                         </tbody>
