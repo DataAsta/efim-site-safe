@@ -289,17 +289,16 @@
         .about-photo {
             grid-column: 1;
             grid-row: 1;
-            position: relative;
-            min-height: 300px;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 20px 50px rgba(26, 26, 26, 0.1);
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
         }
         .profile-photo {
-            position: absolute;
-            top: 0; left: 0;
-            width: 100%;
-            height: 100%;
+            width: 70%;
+            max-width: 320px;
+            border-radius: 20px;
+            box-shadow: 0 20px 50px rgba(26, 26, 26, 0.1);
+            aspect-ratio: 3/4;
             object-fit: cover;
             object-position: center 20%;
             display: block;
@@ -309,21 +308,18 @@
             grid-column: 2;
             grid-row: 1;
         }
-        /* Сертификат — ряд 2, колонка 1 */
+        /* Сертификат — ряд 2, колонка 1, прижат к низу */
         .about-cert {
             grid-column: 1;
             grid-row: 2;
             display: flex;
-            align-items: stretch;
+            align-items: flex-end;
             justify-content: center;
-            height: 100%;
         }
         .cert-link-wrapper {
-            display: flex;
-            align-items: stretch;
-            justify-content: center;
-            width: 100%;
-            height: 100%;
+            display: block;
+            width: 90%;
+            max-width: 400px;
             transition: 0.25s;
         }
         .cert-link-wrapper:hover {
@@ -331,11 +327,9 @@
         }
         .certificate-image {
             width: 100%;
-            height: 100%;
-            object-fit: contain;
-            object-position: center bottom;
             border-radius: 12px;
             display: block;
+            box-shadow: 0 10px 30px rgba(26, 26, 26, 0.12);
         }
         /* Опыт работы — ряд 2, колонка 2 */
         .about-exp {
@@ -393,7 +387,6 @@
             border-radius: 12px;
             padding: 20px 24px 24px 24px;
             background: white;
-            height: 100%;
         }
         .experience-block .experience-title {
             font-weight: 700; color: #1a1a1a; margin-bottom: 16px; font-size: 1.05rem;
@@ -516,9 +509,9 @@
                 grid-template-columns: 1fr;
                 grid-template-rows: auto;
             }
-            .about-photo { grid-column: 1; grid-row: 1; min-height: 500px; }
+            .about-photo { grid-column: 1; grid-row: 1; }
             .about-top { grid-column: 1; grid-row: 2; }
-            .about-cert { grid-column: 1; grid-row: 3; min-height: 400px; }
+            .about-cert { grid-column: 1; grid-row: 3; }
             .about-exp { grid-column: 1; grid-row: 4; }
             .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
             .contact-grid { grid-template-columns: 1fr; gap: 30px; }
@@ -541,8 +534,7 @@
             .case-content h3 { font-size: 1.3rem; }
             .experience-table { font-size: 0.78rem; }
             .experience-table th, .experience-table td { padding: 6px 8px; }
-            .about-photo { min-height: 400px; }
-            .about-cert { min-height: 300px; }
+            .profile-photo { width: 60%; }
         }
         @media (max-width: 420px) {
             .services-grid { grid-template-columns: 1fr; }
