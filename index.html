@@ -285,7 +285,6 @@
             gap: 30px 50px;
             align-items: stretch;
         }
-        /* Фото Ефима — ряд 1, колонка 1, смещено вниз на 1 см */
         .about-photo {
             grid-column: 1;
             grid-row: 1;
@@ -304,12 +303,10 @@
             object-position: center 20%;
             display: block;
         }
-        /* Текст + кнопки — ряд 1, колонка 2 */
         .about-top {
             grid-column: 2;
             grid-row: 1;
         }
-        /* Сертификат — ряд 2, колонка 1, прижат к низу */
         .about-cert {
             grid-column: 1;
             grid-row: 2;
@@ -332,7 +329,6 @@
             display: block;
             box-shadow: 0 10px 30px rgba(26, 26, 26, 0.12);
         }
-        /* Опыт работы — ряд 2, колонка 2 */
         .about-exp {
             grid-column: 2;
             grid-row: 2;
@@ -415,19 +411,21 @@
             }
         }
 
-        /* ----- КОНТАКТЫ + ФУТЕР (единый градиент) ----- */
+        /* ----- КОНТАКТЫ + ФУТЕР (плавный переход от серого к красному → чёрному) ----- */
         .contact-footer-wrapper {
             background: linear-gradient(180deg,
-                #ffffff 0%,
-                #d9d9d9 6%,
-                #c62828 12%,
-                #e53935 40%,
-                #8b1a1a 70%,
+                #fafafa 0%,
+                #e8e8e8 3%,
+                #c9c9c9 6%,
+                #e53935 14%,
+                #e53935 42%,
+                #b71c1c 68%,
+                #5a0a0a 88%,
                 #0a0a0a 100%);
         }
 
         .contact {
-            padding: 60px 0 45px;
+            padding: 80px 0 45px;
             color: white;
         }
         .contact .section-title {
@@ -446,19 +444,24 @@
             color: white;
             text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
         }
+        /* Заголовок «Разбираем ELMA365» + логотип справа */
         .contact-col-header {
             display: flex;
             align-items: center;
+            justify-content: space-between;
             gap: 16px;
             margin-bottom: 16px;
+            width: 100%;
         }
-        .contact-col-header h3 { margin-bottom: 0; }
+        .contact-col-header h3 {
+            margin-bottom: 0;
+        }
+        /* Логотип крупнее, без белой рамки */
         .contact-col-logo {
-            height: 40px;
+            height: 70px;
             width: auto;
-            border-radius: 8px;
-            background: white;
-            padding: 4px 8px;
+            border-radius: 10px;
+            display: block;
         }
         .contact-email {
             font-size: 1.2rem; font-weight: 600; color: white;
@@ -484,22 +487,25 @@
             transform: translateY(-2px);
         }
 
+        /* Футер */
         footer {
-            padding: 40px 0 50px;
-            color: rgba(255, 255, 255, 0.75);
-            font-size: 0.85rem;
+            padding: 50px 0 60px;
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 0.9rem;
         }
         .footer-inner {
             display: flex; flex-direction: column; gap: 8px; align-items: center;
             text-align: center;
         }
-        .footer-inner span {
-            color: rgba(255, 255, 255, 0.9);
+        .footer-name {
+            color: white;
+            font-weight: 600;
+            font-size: 1rem;
             text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
         }
-        .footer-inner .footer-legal {
+        .footer-legal {
             font-size: 0.9rem;
-            color: rgba(255, 255, 255, 0.95);
+            color: rgba(255, 255, 255, 0.9);
         }
 
         /* ----- АДАПТИВ ----- */
@@ -536,6 +542,7 @@
             .experience-table { font-size: 0.78rem; }
             .experience-table th, .experience-table td { padding: 6px 8px; }
             .profile-photo { width: 60%; }
+            .contact-col-logo { height: 55px; }
         }
         @media (max-width: 420px) {
             .services-grid { grid-template-columns: 1fr; }
@@ -817,8 +824,9 @@
 
         <footer>
             <div class="container footer-inner">
-                <span>© ИП Загребин Е.И.</span>
-                <span class="footer-legal">ОГРНИП 324180000087018, ИНН 183402706300</span>
+                <span class="footer-name">ИП Загребин Ефим Игоревич</span>
+                <span class="footer-legal">ИНН 183402706300</span>
+                <span class="footer-legal">ОГРНИП 324180000087018</span>
             </div>
         </footer>
 
