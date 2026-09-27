@@ -276,32 +276,54 @@
             -ms-hyphens: auto;
         }
 
-        /* ----- EFIM ----- */
+        /* ----- EFIM: СЕТКА 2×2 ----- */
         .about { padding: 80px 0; background: #fafafa; }
         .about-grid {
-            display: grid; grid-template-columns: 1fr 1fr;
-            gap: 50px;
-            align-items: start;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: auto auto;
+            gap: 30px 50px;
+            align-items: stretch;
         }
-        .about-image {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 24px;
+        /* Фото Ефима — ряд 1, колонка 1 */
+        .about-photo {
+            grid-column: 1;
+            grid-row: 1;
+            position: relative;
+            min-height: 300px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(26, 26, 26, 0.1);
         }
         .profile-photo {
+            position: absolute;
+            top: 0; left: 0;
             width: 100%;
-            max-width: 450px;
-            border-radius: 20px;
-            box-shadow: 0 20px 50px rgba(26, 26, 26, 0.1);
-            aspect-ratio: 3/4;
+            height: 100%;
             object-fit: cover;
-            object-position: center 15%;
+            object-position: center 20%;
+            display: block;
+        }
+        /* Текст + кнопки — ряд 1, колонка 2 */
+        .about-top {
+            grid-column: 2;
+            grid-row: 1;
+        }
+        /* Сертификат — ряд 2, колонка 1 */
+        .about-cert {
+            grid-column: 1;
+            grid-row: 2;
+            display: flex;
+            align-items: stretch;
+            justify-content: center;
+            height: 100%;
         }
         .cert-link-wrapper {
-            display: block;
-            width: 90%;
-            max-width: 400px;
+            display: flex;
+            align-items: stretch;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
             transition: 0.25s;
         }
         .cert-link-wrapper:hover {
@@ -309,24 +331,31 @@
         }
         .certificate-image {
             width: 100%;
-            box-shadow: 0 10px 30px rgba(26, 26, 26, 0.12);
+            height: 100%;
+            object-fit: contain;
+            object-position: center bottom;
             border-radius: 12px;
             display: block;
         }
+        /* Опыт работы — ряд 2, колонка 2 */
+        .about-exp {
+            grid-column: 2;
+            grid-row: 2;
+        }
 
-        .about-content h2 {
+        .about-top h2 {
             font-size: 2.2rem; font-weight: 700; color: #1a1a1a; margin-bottom: 4px;
         }
-        .about-content .role {
+        .about-top .role {
             font-size: 1rem; font-weight: 500; color: #e53935;
             margin-bottom: 20px; display: block;
         }
-        .about-content p {
+        .about-top p {
             font-size: 1rem; color: #1e293b; line-height: 1.7; margin-bottom: 14px;
         }
-        .about-content .highlight { font-weight: 600; color: #e53935; }
+        .about-top .highlight { font-weight: 600; color: #e53935; }
 
-        /* ----- КАНАЛЫ (внутри EFIM) ----- */
+        /* ----- КАНАЛЫ ----- */
         .about-channels { margin-top: 28px; }
         .channels-title {
             font-size: 0.95rem;
@@ -360,8 +389,11 @@
 
         /* ----- ОПЫТ РАБОТЫ ----- */
         .experience-block {
-            margin-top: 24px; border: 1px solid #f0f0f0;
-            border-radius: 12px; padding: 20px 24px 24px 24px; background: white;
+            border: 1px solid #f0f0f0;
+            border-radius: 12px;
+            padding: 20px 24px 24px 24px;
+            background: white;
+            height: 100%;
         }
         .experience-block .experience-title {
             font-weight: 700; color: #1a1a1a; margin-bottom: 16px; font-size: 1.05rem;
@@ -379,12 +411,10 @@
         }
         .experience-table tr:last-child td { border-bottom: none; }
 
-        /* Первая колонка (Период) — всегда в одну строку */
         .experience-table td:first-child,
         .experience-table th:first-child {
             white-space: nowrap;
         }
-        /* Длинная должность — в одну строку только на десктопе */
         @media (min-width: 601px) {
             .experience-table .nowrap-cell {
                 white-space: nowrap;
@@ -482,7 +512,14 @@
         @media (max-width: 992px) {
             .hero-grid { grid-template-columns: 1fr; gap: 40px; }
             .hero-content h1 { font-size: 2.6rem; }
-            .about-grid { grid-template-columns: 1fr; }
+            .about-grid {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto;
+            }
+            .about-photo { grid-column: 1; grid-row: 1; min-height: 500px; }
+            .about-top { grid-column: 1; grid-row: 2; }
+            .about-cert { grid-column: 1; grid-row: 3; min-height: 400px; }
+            .about-exp { grid-column: 1; grid-row: 4; }
             .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
             .contact-grid { grid-template-columns: 1fr; gap: 30px; }
         }
@@ -504,8 +541,8 @@
             .case-content h3 { font-size: 1.3rem; }
             .experience-table { font-size: 0.78rem; }
             .experience-table th, .experience-table td { padding: 6px 8px; }
-            .profile-photo { max-width: 380px; }
-            .cert-link-wrapper { width: 85%; }
+            .about-photo { min-height: 400px; }
+            .about-cert { min-height: 300px; }
         }
         @media (max-width: 420px) {
             .services-grid { grid-template-columns: 1fr; }
@@ -692,13 +729,12 @@
     <!-- ===== EFIM ===== -->
     <section class="about" id="about">
         <div class="container about-grid">
-            <div class="about-image">
+
+            <div class="about-photo">
                 <img src="Ефим.jpg" alt="Ефим Загребин" class="profile-photo" loading="lazy" />
-                <a href="Сертификат.jpg" target="_blank" class="cert-link-wrapper">
-                    <img src="Сертификат.jpg" alt="Сертификат ELMA365" class="certificate-image" loading="lazy" />
-                </a>
             </div>
-            <div class="about-content">
+
+            <div class="about-top">
                 <h2>Ефим Загребин</h2>
                 <span class="role">Архитектор ELMA365</span>
                 <p>
@@ -722,7 +758,15 @@
                         <a href="https://rutube.ru/channel/42955504" target="_blank" class="channel-link">Rutube</a>
                     </div>
                 </div>
+            </div>
 
+            <div class="about-cert">
+                <a href="Сертификат.jpg" target="_blank" class="cert-link-wrapper">
+                    <img src="Сертификат.jpg" alt="Сертификат ELMA365" class="certificate-image" loading="lazy" />
+                </a>
+            </div>
+
+            <div class="about-exp">
                 <div class="experience-block">
                     <div class="experience-title">Опыт работы</div>
                     <table class="experience-table">
@@ -743,6 +787,7 @@
                     </table>
                 </div>
             </div>
+
         </div>
     </section>
 
