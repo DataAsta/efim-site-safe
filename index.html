@@ -145,24 +145,24 @@
             position: relative;
             overflow: hidden;
         }
-.expertise-card::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 90px;
-    height: 90px;
-    background: radial-gradient(circle 90px at 100% 100%,
-        #0a0a0a 0%,
-        #b71c1c 12%,
-        #e53935 35%,
-        rgba(229, 57, 53, 0.25) 60%,
-        rgba(229, 57, 53, 0) 100%);
-    pointer-events: none;
-    transform-origin: 100% 100%;
-    transition: transform 0.35s ease, opacity 0.35s ease;
-    opacity: 0.9;
-}
+        .expertise-card::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 90px;
+            height: 90px;
+            background: radial-gradient(circle 90px at 100% 100%,
+                #0a0a0a 0%,
+                #b71c1c 12%,
+                #e53935 35%,
+                rgba(229, 57, 53, 0.25) 60%,
+                rgba(229, 57, 53, 0) 100%);
+            pointer-events: none;
+            transform-origin: 100% 100%;
+            transition: transform 0.35s ease, opacity 0.35s ease;
+            opacity: 0.9;
+        }
         .expertise-card:hover {
             background: white;
             box-shadow: 0 12px 30px rgba(26, 26, 26, 0.08);
@@ -170,9 +170,9 @@
             transform: translateY(-4px);
         }
         .expertise-card:hover::after {
-    transform: scale(1.3);
-    opacity: 1;
-}
+            transform: scale(1.3);
+            opacity: 1;
+        }
         .expertise-card h3 {
             font-size: 1.2rem;
             font-weight: 700;
@@ -320,36 +320,99 @@
         /* ----- НАШ ПОДХОД К РАБОТЕ ----- */
         .advantages { padding: 80px 0; background: white; }
         .advantages-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 24px;
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 20px;
+            align-items: stretch;
         }
         .adv-item {
-            background: #fafafa;
-            border: 1px solid #f0f0f0;
-            border-radius: 16px;
-            padding: 28px 22px;
-            transition: 0.25s;
-            text-align: center;
+            background: linear-gradient(160deg, #1f1f1f 0%, #0a0a0a 100%);
+            border-radius: 20px;
+            padding: 28px 24px 28px;
+            transition: transform 0.35s ease, box-shadow 0.35s ease;
+            position: relative;
+            overflow: hidden;
             display: flex;
             flex-direction: column;
+            min-height: 280px;
+            box-shadow:
+                0 1px 0 rgba(255, 255, 255, 0.06) inset,
+                0 12px 30px rgba(10, 10, 10, 0.25);
+        }
+        .adv-item::before {
+            content: attr(data-num);
+            position: absolute;
+            top: 20px;
+            right: 22px;
+            font-size: 3.2rem;
+            font-weight: 800;
+            line-height: 1;
+            letter-spacing: -0.05em;
+            color: rgba(229, 57, 53, 0.18);
+            transition: color 0.35s ease, transform 0.35s ease;
+            pointer-events: none;
+            z-index: 0;
+        }
+        .adv-item::after {
+            content: "";
+            position: absolute;
+            inset: auto 0 0 0;
+            height: 0;
+            background: radial-gradient(ellipse at 50% 100%,
+                rgba(229, 57, 53, 0.4) 0%,
+                rgba(229, 57, 53, 0.1) 45%,
+                rgba(229, 57, 53, 0) 75%);
+            transition: height 0.45s ease;
+            pointer-events: none;
+            z-index: 0;
         }
         .adv-item:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 16px 40px rgba(26, 26, 26, 0.08);
-            border-color: #e0e0e0;
+            transform: translateY(-8px);
+            box-shadow:
+                0 1px 0 rgba(255, 255, 255, 0.1) inset,
+                0 24px 50px rgba(0, 0, 0, 0.35),
+                0 12px 30px rgba(229, 57, 53, 0.25);
+        }
+        .adv-item:hover::before {
+            color: rgba(229, 57, 53, 0.55);
+            transform: scale(1.08);
+        }
+        .adv-item:hover::after {
+            height: 100%;
         }
         .adv-item h4 {
-            font-weight: 700; color: #e53935;
-            margin-bottom: 12px;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 14px;
             font-size: 1.05rem;
-            min-height: 3rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             line-height: 1.3;
+            position: relative;
+            z-index: 1;
+            min-height: 3.4rem;
+            display: flex;
+            align-items: flex-start;
+            padding-right: 40px;
+        }
+        .adv-item h4::after {
+            content: "";
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 24px;
+            height: 2px;
+            background: #e53935;
+            transition: width 0.35s ease;
+        }
+        .adv-item:hover h4::after {
+            width: 48px;
         }
         .adv-item p {
-            font-size: 0.9rem; color: #475569; line-height: 1.6;
+            font-size: 0.88rem;
+            color: rgba(255, 255, 255, 0.72);
+            line-height: 1.6;
+            position: relative;
+            z-index: 1;
+            margin-top: 8px;
         }
 
         /* ----- EFIM: СЕТКА 2×2 ----- */
@@ -598,6 +661,10 @@
                 grid-template-columns: repeat(3, 1fr);
                 gap: 16px;
             }
+            .advantages-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 16px;
+            }
             .about-grid {
                 grid-template-columns: 1fr;
                 grid-template-rows: auto;
@@ -623,6 +690,9 @@
             .services-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
+            .advantages-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
         @media (max-width: 600px) {
             .header-inner { flex-direction: column; align-items: stretch; gap: 8px; }
@@ -640,12 +710,25 @@
                 min-height: auto;
                 text-align: center;
             }
+            .advantages-grid { grid-template-columns: 1fr; }
+            .adv-item {
+                min-height: auto;
+                padding: 26px 22px;
+            }
+            .adv-item h4 {
+                min-height: auto;
+                font-size: 1.05rem;
+            }
+            .adv-item::before {
+                font-size: 2.6rem;
+                top: 16px;
+                right: 18px;
+            }
             .section-title { font-size: 1.8rem; }
             .hero { padding: 40px 0 60px; }
             .logo img { height: 50px; }
             .clients-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
             .client-item { height: 120px; }
-            .advantages-grid { grid-template-columns: 1fr; }
             .case-card { padding: 24px 20px; }
             .case-content h3 { font-size: 1.3rem; }
             .experience-table { font-size: 0.78rem; }
@@ -837,23 +920,23 @@
         <div class="container">
             <h2 class="section-title">Наш подход к работе</h2>
             <div class="advantages-grid">
-                <div class="adv-item">
+                <div class="adv-item" data-num="01">
                     <h4>Без бюрократии</h4>
                     <p>Внедряем быстро и без потери качества. Работаем напрямую с экспертом, а не с менеджером по продажам.</p>
                 </div>
-                <div class="adv-item">
+                <div class="adv-item" data-num="02">
                     <h4>Система не тормозит</h4>
-                    <p>Проектируем с учётом<br />особенностей плат-<br />формы и инфраструк-<br />туры заказчика.<br />Грамотная архитектура —<br />стабильная работа<br />без сбоев.</p>
+                    <p>Проектируем с учётом особенностей платформы и инфраструктуры заказчика. Грамотная архитектура — стабильная работа без сбоев.</p>
                 </div>
-                <div class="adv-item">
+                <div class="adv-item" data-num="03">
                     <h4>Только нужные доработки</h4>
                     <p>95% задач решаем стандартными средствами ELMA365. Кастомизация — только там, где она действительно нужна.</p>
                 </div>
-                <div class="adv-item">
+                <div class="adv-item" data-num="04">
                     <h4>Всегда на связи</h4>
                     <p>Ведущий эксперт ведёт ваш проект лично. Остаёмся на связи и после внедрения — клиенты становятся партнёрами.</p>
                 </div>
-                <div class="adv-item">
+                <div class="adv-item" data-num="05">
                     <h4>Команда под задачу</h4>
                     <p>Специалисты под ваш проект: разработчики, аналитики, DevOps. Глубокая экспертиза ELMA365 и личная ответственность за результат.</p>
                 </div>
