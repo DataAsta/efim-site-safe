@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -151,15 +150,18 @@
             position: absolute;
             bottom: 0;
             right: 0;
-            width: 32px;
-            height: 32px;
-            background: linear-gradient(135deg,
-                #fafafa 0%,
-                #e53935 35%,
-                #b71c1c 65%,
-                #0a0a0a 100%);
-            clip-path: polygon(100% 0, 100% 100%, 0 100%);
+            width: 130px;
+            height: 130px;
+            background: radial-gradient(circle at 100% 100%,
+                #0a0a0a 0%,
+                #b71c1c 22%,
+                #e53935 42%,
+                rgba(229, 57, 53, 0.25) 65%,
+                rgba(229, 57, 53, 0) 90%);
             pointer-events: none;
+            transform-origin: 100% 100%;
+            transition: transform 0.35s ease, opacity 0.35s ease;
+            opacity: 0.9;
         }
         .expertise-card:hover {
             background: white;
@@ -167,17 +169,25 @@
             border-color: #e0e0e0;
             transform: translateY(-4px);
         }
+        .expertise-card:hover::after {
+            transform: scale(1.25);
+            opacity: 1;
+        }
         .expertise-card h3 {
             font-size: 1.2rem;
             font-weight: 700;
             color: #e53935;
             margin-bottom: 12px;
             line-height: 1.3;
+            position: relative;
+            z-index: 1;
         }
         .expertise-card p {
             font-size: 0.95rem;
             color: #475569;
             line-height: 1.6;
+            position: relative;
+            z-index: 1;
         }
 
         /* ----- РЕШЕНИЯ ДЛЯ ВАШЕГО БИЗНЕСА (градиент в чёрный + тень) ----- */
