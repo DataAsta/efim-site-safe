@@ -190,7 +190,7 @@
             z-index: 1;
         }
 
-        /* ----- РЕШЕНИЯ ДЛЯ ВАШЕГО БИЗНЕСА (градиент в чёрный + тень) ----- */
+        /* ----- РЕШЕНИЯ ДЛЯ ВАШЕГО БИЗНЕСА ----- */
         .services { padding: 80px 0 100px; background: #fafafa; }
         .section-title {
             font-size: 2.4rem; font-weight: 700; color: #1a1a1a;
@@ -325,64 +325,62 @@
             gap: 20px;
             align-items: stretch;
         }
+
+        /* Базовая светлая карточка (Вариант A) */
         .adv-item {
-            background: linear-gradient(160deg, #1f1f1f 0%, #0a0a0a 100%);
+            background: white;
+            border: 1px solid #f0f0f0;
             border-radius: 20px;
-            padding: 28px 24px 28px;
-            transition: transform 0.35s ease, box-shadow 0.35s ease;
+            padding: 28px 24px 30px;
+            transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
             position: relative;
             overflow: hidden;
             display: flex;
             flex-direction: column;
             min-height: 280px;
-            box-shadow:
-                0 1px 0 rgba(255, 255, 255, 0.06) inset,
-                0 12px 30px rgba(10, 10, 10, 0.25);
+            box-shadow: 0 4px 14px rgba(26, 26, 26, 0.03);
         }
         .adv-item::before {
             content: attr(data-num);
             position: absolute;
-            top: 20px;
+            top: 18px;
             right: 22px;
             font-size: 3.2rem;
             font-weight: 800;
             line-height: 1;
             letter-spacing: -0.05em;
-            color: rgba(229, 57, 53, 0.18);
+            color: rgba(229, 57, 53, 0.12);
             transition: color 0.35s ease, transform 0.35s ease;
             pointer-events: none;
             z-index: 0;
         }
+        /* Красная линия-полоска снизу, растёт при hover */
         .adv-item::after {
             content: "";
             position: absolute;
             inset: auto 0 0 0;
-            height: 0;
-            background: radial-gradient(ellipse at 50% 100%,
-                rgba(229, 57, 53, 0.4) 0%,
-                rgba(229, 57, 53, 0.1) 45%,
-                rgba(229, 57, 53, 0) 75%);
-            transition: height 0.45s ease;
+            height: 3px;
+            background: #e53935;
+            transform: scaleX(0);
+            transform-origin: left center;
+            transition: transform 0.45s ease;
             pointer-events: none;
-            z-index: 0;
         }
         .adv-item:hover {
             transform: translateY(-8px);
-            box-shadow:
-                0 1px 0 rgba(255, 255, 255, 0.1) inset,
-                0 24px 50px rgba(0, 0, 0, 0.35),
-                0 12px 30px rgba(229, 57, 53, 0.25);
+            border-color: #e53935;
+            box-shadow: 0 20px 45px rgba(26, 26, 26, 0.1);
         }
         .adv-item:hover::before {
-            color: rgba(229, 57, 53, 0.55);
+            color: rgba(229, 57, 53, 0.35);
             transform: scale(1.08);
         }
         .adv-item:hover::after {
-            height: 100%;
+            transform: scaleX(1);
         }
         .adv-item h4 {
             font-weight: 700;
-            color: white;
+            color: #1a1a1a;
             margin-bottom: 14px;
             font-size: 1.05rem;
             line-height: 1.3;
@@ -408,11 +406,78 @@
         }
         .adv-item p {
             font-size: 0.88rem;
-            color: rgba(255, 255, 255, 0.72);
+            color: #475569;
             line-height: 1.6;
             position: relative;
             z-index: 1;
             margin-top: 8px;
+        }
+
+        /* ===== ГИБРИД: первая карточка становится тёмной ===== */
+        .advantages-grid.hybrid-on .adv-item:first-child {
+            background: linear-gradient(160deg, #1f1f1f 0%, #0a0a0a 100%);
+            border-color: transparent;
+            box-shadow:
+                0 1px 0 rgba(255, 255, 255, 0.06) inset,
+                0 12px 30px rgba(10, 10, 10, 0.25);
+        }
+        .advantages-grid.hybrid-on .adv-item:first-child::before {
+            color: rgba(229, 57, 53, 0.35);
+        }
+        /* В тёмной карточке вместо красной полосы — мягкое свечение снизу */
+        .advantages-grid.hybrid-on .adv-item:first-child::after {
+            height: 0;
+            background: radial-gradient(ellipse at 50% 100%,
+                rgba(229, 57, 53, 0.4) 0%,
+                rgba(229, 57, 53, 0.1) 45%,
+                rgba(229, 57, 53, 0) 75%);
+            transform: none;
+            transition: height 0.45s ease;
+        }
+        .advantages-grid.hybrid-on .adv-item:first-child:hover {
+            border-color: transparent;
+            box-shadow:
+                0 1px 0 rgba(255, 255, 255, 0.1) inset,
+                0 24px 50px rgba(0, 0, 0, 0.35),
+                0 12px 30px rgba(229, 57, 53, 0.25);
+        }
+        .advantages-grid.hybrid-on .adv-item:first-child:hover::after {
+            height: 100%;
+        }
+        .advantages-grid.hybrid-on .adv-item:first-child h4 {
+            color: white;
+        }
+        .advantages-grid.hybrid-on .adv-item:first-child p {
+            color: rgba(255, 255, 255, 0.72);
+        }
+
+        /* Кнопка-переключатель */
+        .variant-toggle {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            z-index: 1000;
+            background: #1a1a1a;
+            color: white;
+            border: none;
+            padding: 12px 26px;
+            border-radius: 40px;
+            font-family: inherit;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+            transition: 0.2s;
+            letter-spacing: 0.2px;
+        }
+        .variant-toggle:hover {
+            background: #e53935;
+            transform: translateY(-2px);
+            box-shadow: 0 14px 36px rgba(229, 57, 53, 0.35);
+        }
+        .variant-toggle:focus {
+            outline: 2px solid #e53935;
+            outline-offset: 3px;
         }
 
         /* ----- EFIM: СЕТКА 2×2 ----- */
@@ -550,7 +615,7 @@
             }
         }
 
-        /* ----- КОНТАКТЫ + ФУТЕР (единый градиент) ----- */
+        /* ----- КОНТАКТЫ + ФУТЕР ----- */
         .contact-footer-wrapper {
             background: linear-gradient(180deg,
                 #fafafa 0%,
@@ -647,12 +712,8 @@
                 padding: 28px 20px;
                 min-height: 240px;
             }
-            .service-card h3 {
-                font-size: 1rem;
-            }
-            .service-card p {
-                font-size: 0.85rem;
-            }
+            .service-card h3 { font-size: 1rem; }
+            .service-card p { font-size: 0.85rem; }
         }
         @media (max-width: 992px) {
             .hero-grid { grid-template-columns: 1fr; gap: 40px; }
@@ -735,6 +796,12 @@
             .experience-table th, .experience-table td { padding: 6px 8px; }
             .profile-photo { width: 60%; }
             .contact-logo-large { height: 120px; }
+            .variant-toggle {
+                bottom: 16px;
+                right: 16px;
+                padding: 10px 18px;
+                font-size: 0.8rem;
+            }
         }
         @media (max-width: 420px) {
             .stats-grid { grid-template-columns: 1fr 1fr; }
@@ -919,7 +986,7 @@
     <section class="advantages" id="advantages">
         <div class="container">
             <h2 class="section-title">Наш подход к работе</h2>
-            <div class="advantages-grid">
+            <div class="advantages-grid" id="advantagesGrid">
                 <div class="adv-item" data-num="01">
                     <h4>Без бюрократии</h4>
                     <p>Внедряем быстро и без потери качества. Работаем напрямую с экспертом, а не с менеджером по продажам.</p>
@@ -1009,7 +1076,7 @@
         </div>
     </section>
 
-    <!-- ===== КОНТАКТЫ + ФУТЕР (единый градиент) ===== -->
+    <!-- ===== КОНТАКТЫ + ФУТЕР ===== -->
     <div class="contact-footer-wrapper">
 
         <section class="contact" id="contact">
@@ -1048,7 +1115,11 @@
 
     </div>
 
+    <!-- Кнопка переключения варианта -->
+    <button id="variantToggle" class="variant-toggle" type="button">Показать гибрид</button>
+
     <script>
+        // Плавный скролл по якорям
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 const href = this.getAttribute('href');
@@ -1059,6 +1130,15 @@
                     target.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
             });
+        });
+
+        // Переключатель вариантов «Подхода»
+        const toggle = document.getElementById('variantToggle');
+        const grid = document.getElementById('advantagesGrid');
+        toggle.addEventListener('click', () => {
+            grid.classList.toggle('hybrid-on');
+            const isHybrid = grid.classList.contains('hybrid-on');
+            toggle.textContent = isHybrid ? 'Показать вариант A' : 'Показать гибрид';
         });
     </script>
 
