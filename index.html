@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -179,7 +180,7 @@
             line-height: 1.6;
         }
 
-        /* ----- РЕШЕНИЯ ДЛЯ ВАШЕГО БИЗНЕСА (объёмные карточки) ----- */
+        /* ----- РЕШЕНИЯ ДЛЯ ВАШЕГО БИЗНЕСА (градиент в чёрный + тень) ----- */
         .services { padding: 80px 0 100px; background: #fafafa; }
         .section-title {
             font-size: 2.4rem; font-weight: 700; color: #1a1a1a;
@@ -195,7 +196,7 @@
             align-items: stretch;
         }
         .service-card {
-            background: linear-gradient(180deg, #e53935 0%, #b71c1c 100%);
+            background: linear-gradient(180deg, #e53935 0%, #b71c1c 45%, #0a0a0a 100%);
             color: white;
             padding: 32px 24px;
             border-radius: 20px;
@@ -207,14 +208,16 @@
             position: relative;
             box-shadow:
                 0 1px 0 rgba(255, 255, 255, 0.15) inset,
-                0 10px 30px rgba(183, 28, 28, 0.25);
+                0 15px 35px rgba(0, 0, 0, 0.35),
+                0 5px 15px rgba(183, 28, 28, 0.4);
             cursor: default;
         }
         .service-card:hover {
             transform: translateY(-8px);
             box-shadow:
                 0 1px 0 rgba(255, 255, 255, 0.2) inset,
-                0 20px 50px rgba(183, 28, 28, 0.4);
+                0 25px 50px rgba(0, 0, 0, 0.5),
+                0 10px 25px rgba(229, 57, 53, 0.5);
         }
         .service-card h3 {
             font-size: 1.05rem;
