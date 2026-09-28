@@ -126,27 +126,21 @@
             font-size: 1rem; color: #475569; margin-top: 8px; font-weight: 400;
         }
 
-        /* ----- ОБЛАСТИ ЭКСПЕРТИЗЫ (сетка 2×2 с центром) ----- */
+        /* ----- ОБЛАСТИ ЭКСПЕРТИЗЫ ----- */
         .expertise {
-            padding: 100px 0;
+            padding: 80px 0;
             background: white;
-        }
-        .expertise-wrapper {
-            position: relative;
-            max-width: 900px;
-            margin: 0 auto;
         }
         .expertise-cards {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 80px;
+            gap: 24px;
         }
         .expertise-card {
             background: #fafafa;
             border: 1px solid #f0f0f0;
-            border-radius: 24px;
+            border-radius: 20px;
             padding: 32px 28px;
-            min-height: 200px;
             transition: 0.25s;
         }
         .expertise-card:hover {
@@ -166,27 +160,6 @@
             font-size: 0.95rem;
             color: #475569;
             line-height: 1.6;
-        }
-        .expertise-center {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: #1a1a1a;
-            color: white;
-            padding: 28px 36px;
-            border-radius: 20px;
-            text-align: center;
-            z-index: 5;
-            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3);
-            min-width: 220px;
-            line-height: 1.2;
-        }
-        .expertise-center span {
-            display: block;
-            font-size: 1.3rem;
-            font-weight: 700;
-            letter-spacing: -0.01em;
         }
 
         /* ----- РЕШЕНИЯ ДЛЯ ВАШЕГО БИЗНЕСА ----- */
@@ -567,8 +540,6 @@
         @media (max-width: 992px) {
             .hero-grid { grid-template-columns: 1fr; gap: 40px; }
             .hero-content h1 { font-size: 2.6rem; }
-            .expertise-wrapper { max-width: 100%; }
-            .expertise-cards { gap: 60px; }
             .about-grid {
                 grid-template-columns: 1fr;
                 grid-template-rows: auto;
@@ -587,25 +558,9 @@
             }
         }
         @media (max-width: 768px) {
-            .expertise { padding: 60px 0; }
-            .expertise-wrapper { text-align: center; }
             .expertise-cards {
                 grid-template-columns: 1fr;
                 gap: 20px;
-                text-align: left;
-            }
-            .expertise-center {
-                position: static;
-                transform: none;
-                margin: 0 auto 32px;
-                display: inline-block;
-                min-width: auto;
-                padding: 20px 28px;
-                text-align: center;
-            }
-            .expertise-center span {
-                display: inline;
-                font-size: 1.1rem;
             }
         }
         @media (max-width: 600px) {
@@ -709,35 +664,28 @@
         </div>
     </section>
 
-    <!-- ===== ОБЛАСТИ ЭКСПЕРТИЗЫ (сетка 2×2 с центром) ===== -->
+    <!-- ===== ОБЛАСТИ ЭКСПЕРТИЗЫ ===== -->
     <section class="expertise" id="expertise">
         <div class="container">
-            <div class="expertise-wrapper">
-
-                <div class="expertise-cards">
-                    <div class="expertise-card">
-                        <h3>CRM</h3>
-                        <p>Настраиваем воронки продаж, управление сделками и клиентской базой. Автоматизируем рутину — менеджеры занимаются продажами, а не отчётами.</p>
-                    </div>
-                    <div class="expertise-card">
-                        <h3>Порталы</h3>
-                        <p>Создаём партнёрские, клиентские и внутренние порталы. Единое окно для взаимодействия с партнёрами, клиентами и сотрудниками.</p>
-                    </div>
-                    <div class="expertise-card">
-                        <h3>Документооборот</h3>
-                        <p>Автоматизируем согласование, подписание и хранение документов. Электронный документооборот и КЭДО — без бумаги и потерянных файлов.</p>
-                    </div>
-                    <div class="expertise-card">
-                        <h3>Клиентский сервис</h3>
-                        <p>Обработка обращений по всем каналам: почта, телефония, чаты. База знаний, контроль SLA и аналитика — клиенты получают ответы быстрее.</p>
-                    </div>
+            <h2 class="section-title">Области экспертизы</h2>
+            <p class="section-sub">Глубокий опыт в ключевых направлениях автоматизации на ELMA365</p>
+            <div class="expertise-cards">
+                <div class="expertise-card">
+                    <h3>CRM</h3>
+                    <p>Настраиваем воронки продаж, управление сделками и клиентской базой. Автоматизируем рутину — менеджеры занимаются продажами, а не отчётами.</p>
                 </div>
-
-                <div class="expertise-center">
-                    <span>Области</span>
-                    <span>экспертизы</span>
+                <div class="expertise-card">
+                    <h3>Порталы</h3>
+                    <p>Создаём партнёрские, клиентские и внутренние порталы. Единое окно для взаимодействия с партнёрами, клиентами и сотрудниками.</p>
                 </div>
-
+                <div class="expertise-card">
+                    <h3>Документооборот</h3>
+                    <p>Автоматизируем согласование, подписание и хранение документов. Электронный документооборот и КЭДО — без бумаги и потерянных файлов.</p>
+                </div>
+                <div class="expertise-card">
+                    <h3>Клиентский сервис</h3>
+                    <p>Обработка обращений по всем каналам: почта, телефония, чаты. База знаний, контроль SLA и аналитика — клиенты получают ответы быстрее.</p>
+                </div>
             </div>
         </div>
     </section>
