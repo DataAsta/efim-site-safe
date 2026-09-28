@@ -126,65 +126,67 @@
             font-size: 1rem; color: #475569; margin-top: 8px; font-weight: 400;
         }
 
-        /* ----- ОБЛАСТИ ЭКСПЕРТИЗЫ (асимметричная схема) ----- */
+        /* ----- ОБЛАСТИ ЭКСПЕРТИЗЫ (сетка 2×2 с центром) ----- */
         .expertise {
-            padding: 80px 0;
+            padding: 100px 0;
             background: white;
         }
-        .expertise-grid {
+        .expertise-wrapper {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .expertise-cards {
             display: grid;
-            grid-template-columns: 1fr 1.3fr;
-            gap: 60px;
-            align-items: start;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
         }
-        .expertise-intro {
-            position: sticky;
-            top: 100px;
-        }
-        .expertise-intro .section-title {
-            font-size: 2.4rem;
-            font-weight: 700;
-            color: #1a1a1a;
-            margin-bottom: 12px;
-            letter-spacing: -0.01em;
-        }
-        .expertise-intro .section-sub {
-            font-size: 1.1rem;
-            color: #475569;
-            line-height: 1.6;
-            margin-bottom: 0;
-        }
-        .expertise-list {
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-        }
-        .expertise-item {
+        .expertise-card {
             background: #fafafa;
             border: 1px solid #f0f0f0;
-            border-left: 3px solid #e53935;
-            border-radius: 12px;
-            padding: 24px 28px;
+            border-radius: 24px;
+            padding: 32px 28px;
+            min-height: 200px;
             transition: 0.25s;
         }
-        .expertise-item:hover {
+        .expertise-card:hover {
             background: white;
-            transform: translateX(6px);
             box-shadow: 0 12px 30px rgba(26, 26, 26, 0.08);
             border-color: #e0e0e0;
-            border-left-color: #e53935;
+            transform: translateY(-4px);
         }
-        .expertise-item h3 {
-            font-size: 1.15rem;
+        .expertise-card h3 {
+            font-size: 1.2rem;
             font-weight: 700;
             color: #e53935;
-            margin-bottom: 8px;
+            margin-bottom: 12px;
             line-height: 1.3;
         }
-        .expertise-item p {
+        .expertise-card p {
             font-size: 0.95rem;
             color: #475569;
             line-height: 1.6;
+        }
+        .expertise-center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #1a1a1a;
+            color: white;
+            padding: 28px 36px;
+            border-radius: 20px;
+            text-align: center;
+            z-index: 5;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3);
+            min-width: 220px;
+            line-height: 1.2;
+        }
+        .expertise-center span {
+            display: block;
+            font-size: 1.3rem;
+            font-weight: 700;
+            letter-spacing: -0.01em;
         }
 
         /* ----- РЕШЕНИЯ ДЛЯ ВАШЕГО БИЗНЕСА ----- */
@@ -565,13 +567,8 @@
         @media (max-width: 992px) {
             .hero-grid { grid-template-columns: 1fr; gap: 40px; }
             .hero-content h1 { font-size: 2.6rem; }
-            .expertise-grid {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-            .expertise-intro {
-                position: static;
-            }
+            .expertise-wrapper { max-width: 100%; }
+            .expertise-cards { gap: 60px; }
             .about-grid {
                 grid-template-columns: 1fr;
                 grid-template-rows: auto;
@@ -589,6 +586,28 @@
                 height: 150px;
             }
         }
+        @media (max-width: 768px) {
+            .expertise { padding: 60px 0; }
+            .expertise-wrapper { text-align: center; }
+            .expertise-cards {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                text-align: left;
+            }
+            .expertise-center {
+                position: static;
+                transform: none;
+                margin: 0 auto 32px;
+                display: inline-block;
+                min-width: auto;
+                padding: 20px 28px;
+                text-align: center;
+            }
+            .expertise-center span {
+                display: inline;
+                font-size: 1.1rem;
+            }
+        }
         @media (max-width: 600px) {
             .header-inner { flex-direction: column; align-items: stretch; gap: 8px; }
             .nav-menu { justify-content: center; gap: 16px; }
@@ -596,9 +615,6 @@
             .hero-content h1 { font-size: 2rem; }
             .stat-item .number { font-size: 2.4rem; }
             .stat-item .label { font-size: 0.9rem; }
-            .expertise-item {
-                padding: 20px 22px;
-            }
             .services-grid { grid-template-columns: 1fr 1fr; }
             .section-title { font-size: 1.8rem; }
             .hero { padding: 40px 0 60px; }
@@ -693,36 +709,36 @@
         </div>
     </section>
 
-    <!-- ===== ОБЛАСТИ ЭКСПЕРТИЗЫ ===== -->
+    <!-- ===== ОБЛАСТИ ЭКСПЕРТИЗЫ (сетка 2×2 с центром) ===== -->
     <section class="expertise" id="expertise">
-        <div class="container expertise-grid">
+        <div class="container">
+            <div class="expertise-wrapper">
 
-            <!-- Левая колонка: заголовок -->
-            <div class="expertise-intro">
-                <h2 class="section-title">Области экспертизы</h2>
-                <p class="section-sub">Глубокий опыт в ключевых направлениях автоматизации на ELMA365</p>
+                <div class="expertise-cards">
+                    <div class="expertise-card">
+                        <h3>CRM</h3>
+                        <p>Настраиваем воронки продаж, управление сделками и клиентской базой. Автоматизируем рутину — менеджеры занимаются продажами, а не отчётами.</p>
+                    </div>
+                    <div class="expertise-card">
+                        <h3>Порталы</h3>
+                        <p>Создаём партнёрские, клиентские и внутренние порталы. Единое окно для взаимодействия с партнёрами, клиентами и сотрудниками.</p>
+                    </div>
+                    <div class="expertise-card">
+                        <h3>Документооборот</h3>
+                        <p>Автоматизируем согласование, подписание и хранение документов. Электронный документооборот и КЭДО — без бумаги и потерянных файлов.</p>
+                    </div>
+                    <div class="expertise-card">
+                        <h3>Клиентский сервис</h3>
+                        <p>Обработка обращений по всем каналам: почта, телефония, чаты. База знаний, контроль SLA и аналитика — клиенты получают ответы быстрее.</p>
+                    </div>
+                </div>
+
+                <div class="expertise-center">
+                    <span>Области</span>
+                    <span>экспертизы</span>
+                </div>
+
             </div>
-
-            <!-- Правая колонка: 4 карточки-строки -->
-            <div class="expertise-list">
-                <div class="expertise-item">
-                    <h3>CRM</h3>
-                    <p>Настраиваем воронки продаж, управление сделками и клиентской базой. Автоматизируем рутину — менеджеры занимаются продажами, а не отчётами.</p>
-                </div>
-                <div class="expertise-item">
-                    <h3>Порталы</h3>
-                    <p>Создаём партнёрские, клиентские и внутренние порталы. Единое окно для взаимодействия с партнёрами, клиентами и сотрудниками — без лишних писем и звонков.</p>
-                </div>
-                <div class="expertise-item">
-                    <h3>Документооборот</h3>
-                    <p>Автоматизируем согласование, подписание и хранение документов. Электронный документооборот и КЭДО — без бумаги и потерянных файлов.</p>
-                </div>
-                <div class="expertise-item">
-                    <h3>Клиентский сервис</h3>
-                    <p>Обработка обращений по всем каналам: почта, телефония, чаты. База знаний, контроль SLA и аналитика — клиенты получают ответы быстрее.</p>
-                </div>
-            </div>
-
         </div>
     </section>
 
@@ -919,7 +935,6 @@
                         </div>
                     </div>
                 </div>
-                <!-- Крупный логотип справа -->
                 <img src="Лого.jpg" alt="EFIM365" class="contact-logo-large" />
             </div>
         </section>
