@@ -3,8 +3,18 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>EFIM365 — варианты контактов</title>
+    <title>EFIM365 — внедрение ELMA365 без бюрократии</title>
+
+    <meta name="description" content="EFIM365 — сертифицированный партнёр ELMA365. Внедряем низкокодовую автоматизацию без бюрократии: CRM, документооборот, порталы, интеграции. Более 7 лет опыта." />
+    <meta name="keywords" content="ELMA365, внедрение ELMA365, low-code, автоматизация бизнеса, CRM, документооборот, EFIM365, Загребин, партнёр ELMA365" />
+
+    <meta property="og:title" content="EFIM365 — внедрение ELMA365" />
+    <meta property="og:description" content="Сложные задачи — простые решения. Внедряем ELMA365 без бюрократии." />
+    <meta property="og:image" content="Лого.jpg" />
+    <meta property="og:type" content="website" />
+
     <link rel="icon" type="image/jpeg" href="Лого.jpg" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
@@ -21,20 +31,449 @@
 
         .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
 
-        .prev-section {
-            padding: 60px 0;
-            background: #fafafa;
-            text-align: center;
-            color: #94a3b8;
-            font-size: 0.9rem;
+        /* ----- ШАПКА ----- */
+        header {
+            padding: 16px 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(8px);
+            position: sticky; top: 0; z-index: 100;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+        }
+        .header-inner {
+            display: flex; align-items: center; justify-content: space-between;
+            flex-wrap: wrap; gap: 12px;
+        }
+        .logo {
+            display: flex; align-items: center; gap: 10px;
+            font-weight: 700; font-size: 1.4rem; color: #1a1a1a; text-decoration: none;
+        }
+        .logo img { height: 66px; width: auto; border-radius: 10px; display: block; }
+        .nav-menu { display: flex; align-items: center; gap: 28px; flex-wrap: wrap; }
+        .nav-menu a {
+            text-decoration: none; color: #1e293b; font-weight: 500;
+            font-size: 0.95rem; transition: color 0.2s;
+        }
+        .nav-menu a:hover { color: #e53935; }
+        .header-actions { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+        .btn-outline {
+            background: transparent; border: 1.5px solid #1a1a1a; color: #1a1a1a;
+            padding: 8px 20px; border-radius: 40px; font-weight: 600;
+            font-size: 0.9rem; cursor: pointer; transition: 0.2s; text-decoration: none;
+        }
+        .btn-outline:hover { background: #1a1a1a; color: white; }
+        .btn-primary {
+            background: #1a1a1a; border: none; color: white;
+            padding: 10px 28px; border-radius: 40px; font-weight: 600;
+            font-size: 0.95rem; cursor: pointer; transition: 0.25s;
+            text-decoration: none; display: inline-block;
+        }
+        .btn-primary:hover {
+            background: #e53935; transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(229, 57, 53, 0.25);
+        }
+        .email-header { font-size: 0.9rem; color: #475569; font-weight: 500; }
+
+        /* ----- ГЛАВНЫЙ ЭКРАН ----- */
+        .hero {
+            padding: 60px 0 80px;
+            background: linear-gradient(160deg, #ececec 0%, #f5f5f5 40%, #ffffff 100%);
+            position: relative; overflow: hidden;
+        }
+        .hero-grid {
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 60px; align-items: center; position: relative; z-index: 2;
+        }
+        .hero-content h1 {
+            font-size: 3.2rem; font-weight: 800; line-height: 1.15;
+            color: #1a1a1a; margin-bottom: 20px; letter-spacing: -0.02em;
+        }
+        .hero-content h1 span { color: #e53935; }
+        .hero-content .subtitle {
+            font-size: 1.15rem; color: #475569; max-width: 540px;
+            margin-bottom: 32px; font-weight: 400; line-height: 1.7;
+        }
+        .hero-badge {
+            display: inline-block; background: rgba(26, 26, 26, 0.08);
+            padding: 6px 18px; border-radius: 30px; font-size: 0.95rem;
+            font-weight: 600; color: #1a1a1a; letter-spacing: 0.3px;
+            margin-bottom: 18px; text-decoration: none; transition: 0.2s;
+        }
+        .hero-badge:hover { background: rgba(229, 57, 53, 0.12); color: #e53935; }
+        .hero-actions { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+        .hero-image {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            border-radius: 20px; overflow: hidden;
+            box-shadow: 0 30px 60px rgba(26, 26, 26, 0.15);
+            position: relative;
+        }
+        .hero-image img {
+            width: 100%; height: 100%; object-fit: cover; display: block;
+            object-position: center center;
         }
 
-        /* =======================================================
-           ОБЩАЯ СТРУКТУРА
-           ======================================================= */
+        /* ----- ЦИФРЫ ----- */
+        .stats {
+            padding: 50px 0; background: white;
+            border-top: 1px solid #f0f0f0; border-bottom: 1px solid #f0f0f0;
+        }
+        .stats-grid {
+            display: grid; grid-template-columns: repeat(4, 1fr);
+            gap: 30px; text-align: center;
+        }
+        .stat-item .number {
+            font-size: 3rem; font-weight: 800; color: #1a1a1a; line-height: 1;
+        }
+        .stat-item .number .plus { color: #e53935; }
+        .stat-item .label {
+            font-size: 1rem; color: #475569; margin-top: 8px; font-weight: 400;
+        }
+
+        /* =========================================================
+           ЕДИНЫЙ СТИЛЬ КАРТОЧЕК
+           ========================================================= */
+        .expertise-card,
+        .service-card,
+        .adv-item {
+            background: white;
+            border: 1.5px solid #e53935;
+            border-radius: 20px;
+            padding: 28px 24px 30px;
+            transition: transform 0.35s ease, box-shadow 0.35s ease;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 4px 14px rgba(229, 57, 53, 0.06);
+        }
+        .expertise-card:hover,
+        .service-card:hover,
+        .adv-item:hover {
+            transform: translateY(-8px);
+            box-shadow:
+                0 20px 45px rgba(26, 26, 26, 0.1),
+                0 8px 24px rgba(229, 57, 53, 0.18);
+        }
+        .expertise-card::after,
+        .service-card::after,
+        .adv-item::after {
+            content: "";
+            position: absolute;
+            inset: auto 0 0 0;
+            height: 3px;
+            background: #e53935;
+            transform: scaleX(0);
+            transform-origin: left center;
+            transition: transform 0.45s ease;
+            pointer-events: none;
+        }
+        .expertise-card:hover::after,
+        .service-card:hover::after,
+        .adv-item:hover::after {
+            transform: scaleX(1);
+        }
+        .expertise-card h3,
+        .service-card h3,
+        .adv-item h4 {
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 18px;
+            line-height: 1.3;
+            position: relative;
+            z-index: 1;
+            padding-bottom: 10px;
+        }
+        .expertise-card h3::after,
+        .service-card h3::after,
+        .adv-item h4::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 24px;
+            height: 2px;
+            background: #e53935;
+            transition: width 0.35s ease;
+        }
+        .expertise-card:hover h3::after,
+        .service-card:hover h3::after,
+        .adv-item:hover h4::after {
+            width: 48px;
+        }
+        .expertise-card p,
+        .service-card p,
+        .adv-item p {
+            font-size: 0.9rem;
+            color: #475569;
+            line-height: 1.6;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ----- ОБЛАСТИ ЭКСПЕРТИЗЫ ----- */
+        .expertise { padding: 80px 0; background: white; }
+        .expertise-cards {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+        .expertise-card h3 { font-size: 1.15rem; }
+        .expertise-card p { font-size: 0.95rem; }
+
+        /* ----- РЕШЕНИЯ ДЛЯ ВАШЕГО БИЗНЕСА ----- */
+        .services { padding: 80px 0 100px; background: #fafafa; }
+        .section-title {
+            font-size: 2.4rem; font-weight: 700; color: #1a1a1a;
+            margin-bottom: 12px; letter-spacing: -0.01em;
+        }
+        .section-sub {
+            font-size: 1.1rem; color: #475569; max-width: 600px; margin-bottom: 56px;
+        }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 20px;
+            align-items: stretch;
+        }
+        .service-card { min-height: 260px; }
+        .service-card h3 { font-size: 1.05rem; }
+        .service-card p { font-size: 0.88rem; }
+
+        /* ----- КЛИЕНТЫ ----- */
+        .clients {
+            padding: 60px 0; background: white;
+            border-top: 1px solid #f0f0f0; border-bottom: 1px solid #f0f0f0;
+        }
+        .clients .section-title {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            gap: 8px;
+        }
+        .clients-grid {
+            display: grid; grid-template-columns: repeat(4, 1fr);
+            gap: 30px; margin-top: 20px;
+            max-width: 900px; margin-left: auto; margin-right: auto;
+        }
+        .client-item {
+            width: 100%; height: 175px;
+            display: flex; align-items: center; justify-content: center;
+            background: #f0f0f0; border-radius: 16px; border: none;
+            padding: 0; transition: 0.2s;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+        }
+        .client-item:hover { transform: scale(1.02); }
+        .client-item.white-bg { background: white; border: 2px solid #f0f0f0; }
+        .client-item.white-bg:hover { background: #fafafa; }
+        .client-item.bg-f6 { background: #0B1A30; }
+        .client-item.bg-f6:hover { background: #06101e; }
+        .client-item.bg-rogos { background: #000000; }
+        .client-item.bg-rogos:hover { background: #1a1a1a; }
+        .client-item img {
+            width: 100%; height: 100%; object-fit: contain;
+            display: block; border-radius: 16px;
+        }
+
+        /* ----- КЕЙС ----- */
+        .case { padding: 60px 0 80px; background: #fafafa; }
+        .case-card {
+            background: white; border-radius: 20px; padding: 40px;
+            box-shadow: 0 8px 30px rgba(26, 26, 26, 0.06);
+            border: 1px solid #f0f0f0;
+            transition: 0.25s; margin-top: 8px;
+        }
+        .case-card:hover {
+            box-shadow: 0 16px 50px rgba(26, 26, 26, 0.1);
+            border-color: #e0e0e0;
+        }
+        .case-content h3 {
+            font-size: 1.6rem; font-weight: 700; color: #1a1a1a;
+            margin-bottom: 12px; letter-spacing: -0.01em;
+        }
+        .case-content p {
+            font-size: 1rem; color: #475569; line-height: 1.7; margin-bottom: 12px;
+        }
+        .case-content .highlight { font-weight: 600; color: #e53935; }
+        .case-links {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 12px 40px;
+            margin-top: 20px;
+        }
+        .case-link {
+            display: inline-flex; align-items: center; gap: 8px;
+            color: #1a1a1a; font-weight: 600; text-decoration: none;
+            border-bottom: 2px solid #e53935; padding-bottom: 2px; transition: 0.2s;
+        }
+        .case-link:hover { color: #e53935; }
+
+        /* ----- НАШ ПОДХОД К РАБОТЕ ----- */
+        .advantages { padding: 80px 0; background: white; }
+        .advantages-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 20px;
+            align-items: stretch;
+        }
+        .adv-item { min-height: 280px; }
+        .adv-item h4 {
+            font-size: 1.05rem;
+            min-height: 3.4rem;
+            display: flex;
+            align-items: flex-start;
+        }
+        .adv-item p { font-size: 0.88rem; margin-top: 4px; }
+
+        /* ----- EFIM: СЕТКА 2×2 ----- */
+        .about { padding: 80px 0; background: #fafafa; }
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: auto auto;
+            gap: 30px 50px;
+            align-items: stretch;
+        }
+        .about-photo {
+            grid-column: 1;
+            grid-row: 1;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            margin-top: 8px;
+        }
+        .profile-photo {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 20px;
+            box-shadow: 0 20px 50px rgba(26, 26, 26, 0.1);
+            aspect-ratio: 3/4;
+            object-fit: cover;
+            object-position: center 20%;
+            display: block;
+        }
+        .about-top {
+            grid-column: 2;
+            grid-row: 1;
+        }
+        .about-cert {
+            grid-column: 1;
+            grid-row: 2;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+        }
+        .cert-link-wrapper {
+            display: block;
+            width: 100%;
+            max-width: 400px;
+            transition: 0.25s;
+        }
+        .cert-link-wrapper:hover {
+            transform: scale(1.02);
+        }
+        .certificate-image {
+            width: 100%;
+            border-radius: 12px;
+            display: block;
+            box-shadow: 0 10px 30px rgba(26, 26, 26, 0.12);
+        }
+        .about-exp {
+            grid-column: 2;
+            grid-row: 2;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+        }
+
+        .about-top h2 {
+            font-size: 2.2rem; font-weight: 700; color: #1a1a1a; margin-bottom: 4px;
+        }
+        .about-top .role {
+            font-size: 1rem; font-weight: 500; color: #e53935;
+            margin-bottom: 20px; display: block;
+        }
+        .about-top p {
+            font-size: 1rem; color: #1e293b; line-height: 1.7; margin-bottom: 14px;
+        }
+        .about-top .highlight { font-weight: 600; color: #e53935; }
+
+        /* ----- КАНАЛЫ ----- */
+        .about-channels { margin-top: 28px; }
+        .channels-title {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 12px;
+        }
+        .channels-links {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .channel-link {
+            display: inline-block;
+            padding: 10px 22px;
+            border-radius: 40px;
+            background: white;
+            border: 1.5px solid #f0f0f0;
+            color: #1a1a1a;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: 0.2s;
+        }
+        .channel-link:hover {
+            background: #e53935;
+            border-color: #e53935;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* ----- ОПЫТ РАБОТЫ ----- */
+        .experience-block {
+            border: 1px solid #f0f0f0;
+            border-radius: 12px;
+            padding: 20px 24px 24px 24px;
+            background: white;
+        }
+        .experience-block .experience-title {
+            font-weight: 700; color: #1a1a1a; margin-bottom: 16px; font-size: 1.05rem;
+        }
+        .experience-table {
+            width: 100%; border-collapse: collapse; font-size: 0.9rem;
+            table-layout: auto;
+        }
+        .experience-table th, .experience-table td {
+            padding: 10px 14px; text-align: left; border-bottom: 1px solid #f0f0f0;
+            vertical-align: middle;
+        }
+        .experience-table th {
+            background: #f5f5f5; font-weight: 600; color: #1a1a1a;
+        }
+        .experience-table tr:last-child td { border-bottom: none; }
+
+        .experience-table td:first-child,
+        .experience-table th:first-child {
+            white-space: nowrap;
+        }
+        @media (min-width: 601px) {
+            .experience-table .nowrap-cell {
+                white-space: nowrap;
+            }
+        }
+
+        /* =========================================================
+           КОНТАКТЫ + ФУТЕР — V7
+           Красный верх, чёрный низ. ИП/ИНН/ОГРНИП — на чёрном.
+           ========================================================= */
         .contact-footer-wrapper {
             position: relative;
-            transition: background 0.4s ease;
+            background: linear-gradient(180deg,
+                #e53935 0%,
+                #e53935 62%,
+                #0a0a0a 62%,
+                #0a0a0a 100%);
         }
 
         .contact {
@@ -93,6 +532,7 @@
             box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
         }
 
+        /* Логотип — без тени */
         .contact-logo-large {
             position: absolute;
             right: 62px;
@@ -102,10 +542,6 @@
             border-radius: 20px;
             display: block;
             z-index: 5;
-            box-shadow:
-                0 -14px 40px rgba(0, 0, 0, 0.75),
-                0 -4px 12px rgba(0, 0, 0, 0.6),
-                0 24px 50px rgba(0, 0, 0, 0.55);
         }
 
         footer {
@@ -129,192 +565,382 @@
             text-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
         }
 
-        /* =======================================================
-           ГРАДИЕНТНЫЕ ВАРИАНТЫ (V1–V6)
-           ======================================================= */
-
-        .contact-footer-wrapper.theme-v1 {
-            background: linear-gradient(180deg,
-                #fafafa 0%,
-                #e8e8e8 3%,
-                #c9c9c9 6%,
-                #e53935 12%,
-                #e53935 34%,
-                #b71c1c 50%,
-                #5a0a0a 65%,
-                #0a0a0a 78%,
-                #0a0a0a 100%);
+        /* ----- АДАПТИВ ----- */
+        @media (max-width: 1200px) {
+            .service-card {
+                padding: 26px 20px 28px;
+                min-height: 240px;
+            }
+            .service-card h3 { font-size: 1rem; }
+            .service-card p { font-size: 0.85rem; }
         }
-
-        .contact-footer-wrapper.theme-v2 {
-            background: linear-gradient(180deg,
-                #fafafa 0%,
-                #ede0e0 2%,
-                #e0a0a0 4%,
-                #e53935 10%,
-                #e53935 26%,
-                #b71c1c 48%,
-                #5a0a0a 68%,
-                #0a0a0a 88%,
-                #0a0a0a 100%);
-        }
-
-        .contact-footer-wrapper.theme-v3 {
-            background: linear-gradient(180deg,
-                #e8e8e8 0%,
-                #e53935 5%,
-                #e53935 25%,
-                #b71c1c 50%,
-                #5a0a0a 70%,
-                #0a0a0a 88%,
-                #0a0a0a 100%);
-        }
-
-        .contact-footer-wrapper.theme-v4 {
-            background: linear-gradient(180deg,
-                #0a0a0a 0%,
-                #5a0a0a 18%,
-                #b71c1c 34%,
-                #e53935 50%,
-                #b71c1c 66%,
-                #5a0a0a 82%,
-                #0a0a0a 100%);
-        }
-
-        .contact-footer-wrapper.theme-v5 {
-            background: linear-gradient(180deg,
-                #fafafa 0%,
-                #ede0e0 2%,
-                #e0a0a0 4%,
-                #e53935 10%,
-                #e53935 45%,
-                #b71c1c 62%,
-                #5a0a0a 78%,
-                #0a0a0a 92%,
-                #0a0a0a 100%);
-        }
-
-        .contact-footer-wrapper.theme-v6 {
-            background:
-                radial-gradient(ellipse at 50% 100%,
-                    rgba(229, 57, 53, 0.85) 0%,
-                    rgba(183, 28, 28, 0.6) 25%,
-                    rgba(90, 10, 10, 0.3) 50%,
-                    rgba(10, 10, 10, 0) 75%),
-                linear-gradient(180deg,
-                    #0a0a0a 0%,
-                    #0a0a0a 100%);
-        }
-
-        /* =======================================================
-           БЕЗ ГРАДИЕНТА (V7–V8)
-           ======================================================= */
-
-        /* V7 — Красный верх, весь низ с ИП — на чёрном */
-        .contact-footer-wrapper.theme-v7 {
-            background: linear-gradient(180deg,
-                #e53935 0%,
-                #e53935 62%,
-                #0a0a0a 62%,
-                #0a0a0a 100%);
-        }
-
-        /* V8 — Пополам: красный верх, чёрный низ */
-        .contact-footer-wrapper.theme-v8 {
-            background: linear-gradient(180deg,
-                #e53935 0%,
-                #e53935 50%,
-                #0a0a0a 50%,
-                #0a0a0a 100%);
-        }
-
-        /* =======================================================
-           ПЕРЕКЛЮЧАТЕЛЬ
-           ======================================================= */
-        .theme-switcher {
-            position: fixed;
-            bottom: 24px;
-            right: 24px;
-            z-index: 1000;
-            background: rgba(26, 26, 26, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 10px;
-            border-radius: 16px;
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
-            max-width: 300px;
-        }
-        .theme-switcher button {
-            background: transparent;
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            color: white;
-            font-family: inherit;
-            font-size: 0.8rem;
-            font-weight: 500;
-            padding: 9px 14px;
-            border-radius: 10px;
-            cursor: pointer;
-            text-align: left;
-            transition: 0.15s;
-            white-space: nowrap;
-        }
-        .theme-switcher button:hover {
-            background: rgba(255, 255, 255, 0.08);
-            border-color: rgba(255, 255, 255, 0.3);
-        }
-        .theme-switcher button.active {
-            background: #e53935;
-            border-color: #e53935;
-            color: white;
-        }
-        .theme-switcher .divider {
-            height: 1px;
-            background: rgba(255, 255, 255, 0.15);
-            margin: 4px 2px;
-        }
-
         @media (max-width: 992px) {
+            .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+            .hero-content h1 { font-size: 2.6rem; }
+            .services-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 16px;
+            }
+            .advantages-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 16px;
+            }
+            .about-grid {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto;
+            }
+            .about-photo { grid-column: 1; grid-row: 1; }
+            .about-top { grid-column: 1; grid-row: 2; }
+            .about-cert { grid-column: 1; grid-row: 3; }
+            .about-exp { grid-column: 1; grid-row: 4; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+
             .contact-grid { grid-template-columns: 1fr; gap: 30px; }
             .contact-logo-large {
                 position: static;
                 margin: 40px auto 0;
                 height: 130px;
-                box-shadow: 0 14px 40px rgba(0, 0, 0, 0.5);
             }
             .footer-inner { align-items: center; text-align: center; }
         }
+        @media (max-width: 768px) {
+            .expertise-cards {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .advantages-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
         @media (max-width: 600px) {
-            .theme-switcher {
-                left: 12px; right: 12px; bottom: 12px;
-                max-width: none;
-                flex-direction: row;
-                flex-wrap: wrap;
-                padding: 8px;
+            .header-inner { flex-direction: column; align-items: stretch; gap: 8px; }
+            .nav-menu { justify-content: center; gap: 16px; }
+            .header-actions { justify-content: center; }
+            .hero-content h1 { font-size: 2rem; }
+            .stat-item .number { font-size: 2.4rem; }
+            .stat-item .label { font-size: 0.9rem; }
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 14px;
             }
-            .theme-switcher button {
-                flex: 1 1 calc(50% - 6px);
-                font-size: 0.72rem;
-                padding: 8px 10px;
+            .service-card {
+                padding: 24px 22px 26px;
+                min-height: auto;
                 text-align: center;
-                white-space: normal;
             }
-            .theme-switcher .divider {
-                width: 100%;
-                margin: 2px 0;
+            .service-card h3,
+            .service-card h4 {
+                text-align: center;
             }
+            .service-card h3::after,
+            .adv-item h4::after,
+            .expertise-card h3::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            .service-card:hover h3::after,
+            .adv-item:hover h4::after,
+            .expertise-card:hover h3::after {
+                width: 48px;
+            }
+            .advantages-grid { grid-template-columns: 1fr; }
+            .adv-item {
+                min-height: auto;
+                padding: 26px 22px 28px;
+            }
+            .adv-item h4 {
+                min-height: auto;
+                font-size: 1.05rem;
+            }
+            .section-title { font-size: 1.8rem; }
+            .hero { padding: 40px 0 60px; }
+            .logo img { height: 50px; }
+            .clients-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+            .client-item { height: 120px; }
+            .case-card { padding: 24px 20px; }
+            .case-content h3 { font-size: 1.3rem; }
+            .experience-table { font-size: 0.78rem; }
+            .experience-table th, .experience-table td { padding: 6px 8px; }
+            .profile-photo { max-width: 100%; }
+            .cert-link-wrapper { max-width: 100%; }
             .contact-logo-large { height: 100px; }
         }
+        @media (max-width: 420px) {
+            .stats-grid { grid-template-columns: 1fr 1fr; }
+            .nav-menu a { font-size: 0.8rem; }
+        }
+
+        .comma { font-size: 1.2rem; opacity: 1; margin-left: -0.05em; }
     </style>
 </head>
 <body>
 
-    <div class="prev-section">
-        ↑ здесь заканчивается секция «О Ефиме» — светлая
-    </div>
+    <!-- ===== ШАПКА ===== -->
+    <header>
+        <div class="container header-inner">
+            <a href="#" class="logo">
+                <img src="Лого.jpg" alt="EFIM365" />
+                EFIM365
+            </a>
+            <nav class="nav-menu">
+                <a href="#expertise">Экспертиза</a>
+                <a href="#services">Решения</a>
+                <a href="#clients">Клиенты</a>
+                <a href="#case">Кейс</a>
+                <a href="#about">О Ефиме</a>
+                <a href="#contact">Контакты</a>
+            </nav>
+            <div class="header-actions">
+                <span class="email-header">efim365@yandex.ru</span>
+                <a href="#contact" class="btn-primary">Связаться</a>
+            </div>
+        </div>
+    </header>
 
-    <div class="contact-footer-wrapper theme-v1" id="themeWrapper">
+    <!-- ===== ГЛАВНЫЙ ЭКРАН ===== -->
+    <section class="hero">
+        <div class="container hero-grid">
+            <div class="hero-content">
+                <a href="https://elma365.com/ru/partners/efim-365/" target="_blank" class="hero-badge">
+                    Сертифицированный партнёр ELMA365
+                </a>
+                <h1>Сложные задачи — <br /><span>простые решения</span></h1>
+                <p class="subtitle">
+                    Архитектор ELMA365, более 7 лет экспертизы.<br />
+                    Собираю сильную команду и запускаю MVP в срок.<br />
+                    Лично веду каждый проект от архитектуры до запуска.<br />
+                    Остаюсь на связи и после сдачи проекта.
+                </p>
+                <div class="hero-actions">
+                    <a href="#contact" class="btn-primary">Обсудить проект →</a>
+                    <a href="https://t.me/EFIM365?direct" target="_blank" class="btn-outline">Telegram-канал</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="Шапка.png" alt="EFIM365" loading="lazy" />
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ЦИФРЫ ===== -->
+    <section class="stats">
+        <div class="container stats-grid">
+            <div class="stat-item">
+                <div class="number">7<span class="plus">+</span></div>
+                <div class="label">лет экспертизы ELMA365</div>
+            </div>
+            <div class="stat-item">
+                <div class="number">9<span class="plus">+</span></div>
+                <div class="label">крупных клиентов</div>
+            </div>
+            <div class="stat-item">
+                <div class="number">20<span class="plus">+</span></div>
+                <div class="label">компаний автоматизировано</div>
+            </div>
+            <div class="stat-item">
+                <div class="number">555<span class="plus">+</span></div>
+                <div class="label">участников сообщества EFIM365</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ОБЛАСТИ ЭКСПЕРТИЗЫ ===== -->
+    <section class="expertise" id="expertise">
+        <div class="container">
+            <h2 class="section-title">Области экспертизы</h2>
+            <p class="section-sub">Глубокий опыт в ключевых направлениях автоматизации на ELMA365</p>
+            <div class="expertise-cards">
+                <div class="expertise-card">
+                    <h3>CRM</h3>
+                    <p>Настраиваем воронки продаж, управление сделками и клиентской базой. Автоматизируем рутину — менеджеры занимаются продажами, а не отчётами.</p>
+                </div>
+                <div class="expertise-card">
+                    <h3>Порталы</h3>
+                    <p>Создаём партнёрские, клиентские и внутренние порталы. Единое окно для взаимодействия с партнёрами, клиентами и сотрудниками.</p>
+                </div>
+                <div class="expertise-card">
+                    <h3>Документооборот</h3>
+                    <p>Автоматизируем согласование, подписание и хранение документов. Электронный документооборот и КЭДО — без бумаги и потерянных файлов.</p>
+                </div>
+                <div class="expertise-card">
+                    <h3>Клиентский сервис</h3>
+                    <p>Обработка обращений по всем каналам: почта, телефония, чаты. База знаний, контроль SLA и аналитика — клиенты получают ответы быстрее.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== РЕШЕНИЯ ДЛЯ ВАШЕГО БИЗНЕСА ===== -->
+    <section class="services" id="services">
+        <div class="container">
+            <h2 class="section-title">Решения для вашего бизнеса</h2>
+            <p class="section-sub">Экспертиза полного цикла — от идеи до работающей системы</p>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Разработка решений</h3>
+                    <p>Создаём функционал, которого нет в «коробке». Максимально быстро, грамотно и надёжно. MVP от 2 недель.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Интеграция</h3>
+                    <p>Связываем ELMA365 с 1С, Диадок 2.0 и другими системами. Настраиваем двусторонний обмен данными и синхронизацию процессов. Интеграция от 2 недель.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Архитектура</h3>
+                    <p>Разрабатываем архитектуру под ваш бизнес. Проводим ревью существующих решений, оптимизируем и готовим к росту. Ревью от 3 дней.</p>
+                </div>
+                <div class="service-card">
+                    <h3>DevOps</h3>
+                    <p>Развертывание, настройка инфраструктуры, CI/CD, мониторинг и отказоустойчивость. Настройка от 1 недели.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Обучение</h3>
+                    <p>Обучаем вашу команду работе с ELMA365, проводим индивидуальные занятия и консультации.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== КЛИЕНТЫ ===== -->
+    <section class="clients" id="clients">
+        <div class="container">
+            <h2 class="section-title">Наши клиенты</h2>
+            <div class="clients-grid">
+                <div class="client-item bg-f6"><img src="f6.png" alt="F6" /></div>
+                <div class="client-item white-bg"><img src="МИТТУ.jpeg" alt="КАМАЗ (МИТТУ)" /></div>
+                <div class="client-item white-bg"><img src="трайдент.png" alt="Трайдент ИСТ" /></div>
+                <div class="client-item bg-rogos"><img src="Рогос.jpg" alt="Рогос" /></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== КЕЙС ===== -->
+    <section class="case" id="case">
+        <div class="container">
+            <h2 class="section-title">Кейс из практики</h2>
+            <div class="case-card">
+                <div class="case-content">
+                    <h3>F6 — экосистема коммерческих и партнёрских коммуникаций</h3>
+                    <p>
+                        Мы спроектировали и внедрили для F6 партнёрский портал и внутренний портал 
+                        на платформе ELMA365. Проект объединил коммерческие и партнёрские коммуникации 
+                        компании в единую экосистему.
+                    </p>
+                    <p>
+                        <span class="highlight">Ефим Загребин</span> выступил техническим архитектором проекта — 
+                        от проработки архитектуры до запуска и передачи в эксплуатацию.
+                    </p>
+                    <div class="case-links">
+                        <a href="https://elma365.com/ru/success-stories/f6/" target="_blank" class="case-link">
+                            История успеха →
+                        </a>
+                        <a href="https://www.cnews.ru/news/line/2026-07-22_f6_zapustila_sobstvennuyu" target="_blank" class="case-link">
+                            Кейс на CNews →
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== НАШ ПОДХОД К РАБОТЕ ===== -->
+    <section class="advantages" id="advantages">
+        <div class="container">
+            <h2 class="section-title">Наш подход к работе</h2>
+            <div class="advantages-grid">
+                <div class="adv-item">
+                    <h4>Без бюрократии</h4>
+                    <p>Внедряем быстро и без потери качества. Работаем напрямую с экспертом, а не с менеджером по продажам.</p>
+                </div>
+                <div class="adv-item">
+                    <h4>Система не тормозит</h4>
+                    <p>Проектируем с учётом особенностей платформы и инфраструктуры заказчика. Грамотная архитектура — стабильная работа без сбоев.</p>
+                </div>
+                <div class="adv-item">
+                    <h4>Только нужные доработки</h4>
+                    <p>95% задач решаем стандартными средствами ELMA365. Кастомизация — только там, где она действительно нужна.</p>
+                </div>
+                <div class="adv-item">
+                    <h4>Всегда на связи</h4>
+                    <p>Ведущий эксперт ведёт ваш проект лично. Остаёмся на связи и после внедрения — клиенты становятся партнёрами.</p>
+                </div>
+                <div class="adv-item">
+                    <h4>Команда под задачу</h4>
+                    <p>Специалисты под ваш проект: разработчики, аналитики, DevOps. Глубокая экспертиза ELMA365 и личная ответственность за результат.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== EFIM ===== -->
+    <section class="about" id="about">
+        <div class="container about-grid">
+
+            <div class="about-photo">
+                <img src="Ефим.jpg" alt="Ефим Загребин" class="profile-photo" loading="lazy" />
+            </div>
+
+            <div class="about-top">
+                <h2>Ефим Загребин</h2>
+                <span class="role">Архитектор ELMA365</span>
+                <p>
+                    Превращаю сложные процессы в простые и понятные системы. Убеждён: хорошее решение — то, которое работает без моего постоянного участия.
+                </p>
+                <p>
+                    Начинал как разработчик, прошёл путь до архитектора ELMA365. Знаю платформу изнутри — поэтому вижу не только <span class="highlight">что</span> сделать, но <span class="highlight">как</span>, а самое главное — <span class="highlight">зачем</span>.
+                </p>
+                <p>
+                    Люблю задачи, где нет готовых ответов. Чем нестандартнее вызов, тем интереснее находить решение.
+                </p>
+                <p>
+                    Делюсь опытом открыто: провожу эфиры, разбираю кейсы, отвечаю на вопросы. Уверен, что знания должны работать на всё сообщество ELMA365.
+                </p>
+
+                <div class="about-channels">
+                    <p class="channels-title">Смотрите и читайте:</p>
+                    <div class="channels-links">
+                        <a href="https://t.me/EFIM365?direct" target="_blank" class="channel-link">Telegram</a>
+                        <a href="https://www.youtube.com/@efim365" target="_blank" class="channel-link">YouTube</a>
+                        <a href="https://rutube.ru/channel/42955504" target="_blank" class="channel-link">Rutube</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="about-cert">
+                <a href="Сертификат.jpg" target="_blank" class="cert-link-wrapper">
+                    <img src="Сертификат.jpg" alt="Сертификат ELMA365" class="certificate-image" loading="lazy" />
+                </a>
+            </div>
+
+            <div class="about-exp">
+                <div class="experience-block">
+                    <div class="experience-title">Опыт работы</div>
+                    <table class="experience-table">
+                        <thead>
+                            <tr>
+                                <th>Период</th>
+                                <th>Компании</th>
+                                <th>Должность</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>с ноября 2024</td><td>EFIM365</td><td>Основатель</td></tr>
+                            <tr><td>2024</td><td>МТС Digital</td><td>Team Lead</td></tr>
+                            <tr><td>2023-2024</td><td>Codexoptimus</td><td class="nowrap-cell">Senior low-code developer</td></tr>
+                            <tr><td>2021-2023</td><td>Elma</td><td>Team Lead</td></tr>
+                            <tr><td>2019-2021</td><td>Elma</td><td>Low-code developer</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ===== КОНТАКТЫ + ФУТЕР ===== -->
+    <div class="contact-footer-wrapper">
 
         <section class="contact" id="contact">
             <div class="container">
@@ -353,27 +979,16 @@
 
     </div>
 
-    <div class="theme-switcher" id="themeSwitcher">
-        <button data-theme="v1" class="active">V1. Текущий</button>
-        <button data-theme="v2">V2. Красный → чёрный</button>
-        <button data-theme="v3">V3. Лёгкий старт → красный</button>
-        <button data-theme="v4">V4. Чёрный → красный → чёрный</button>
-        <button data-theme="v5">V5. Много красного</button>
-        <button data-theme="v6">V6. Тёмный с красным свечением</button>
-        <div class="divider"></div>
-        <button data-theme="v7">V7. Красный верх, ИП на чёрном</button>
-        <button data-theme="v8">V8. Пополам</button>
-    </div>
-
     <script>
-        const wrapper = document.getElementById('themeWrapper');
-        const buttons = document.querySelectorAll('.theme-switcher button');
-
-        buttons.forEach(btn => {
-            btn.addEventListener('click', () => {
-                buttons.forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-                wrapper.className = 'contact-footer-wrapper theme-' + btn.dataset.theme;
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href === '#') return;
+                e.preventDefault();
+                const target = document.querySelector(href);
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
             });
         });
     </script>
