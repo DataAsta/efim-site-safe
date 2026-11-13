@@ -3,6 +3,21 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+        (function(m,e,t,r,i,k,a){
+            m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+            m[i].l=1*new Date();
+            for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+            k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+        })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=114230091', 'ym');
+
+        ym(114230091, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/114230091" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
+
     <title>EFIM365 — внедрение ELMA365 без бюрократии</title>
 
     <meta name="description" content="EFIM365 — сертифицированный партнёр ELMA365. Внедряем низкокодовую автоматизацию без бюрократии: CRM, документооборот, порталы, интеграции. Более 7 лет опыта." />
@@ -10,14 +25,87 @@
 
     <meta property="og:title" content="EFIM365 — внедрение ELMA365" />
     <meta property="og:description" content="Сложные задачи — простые решения. Внедряем ELMA365 без бюрократии." />
-    <meta property="og:image" content="Лого.jpg" />
+    <meta property="og:image" content="https://efim365.ru/logo.webp" />
     <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://efim365.ru/" />
 
-    <link rel="icon" type="image/jpeg" href="Лого.jpg" />
+    <link rel="icon" type="image/webp" href="logo.webp" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://efim365.ru/#organization",
+          "name": "EFIM365",
+          "url": "https://efim365.ru/",
+          "logo": "https://efim365.ru/logo.webp",
+          "description": "Сертифицированный партнёр ELMA365. Внедрение низкокодовой автоматизации без бюрократии.",
+          "email": "efim365@yandex.ru",
+          "founder": {
+            "@type": "Person",
+            "name": "Ефим Загребин",
+            "jobTitle": "Архитектор ELMA365"
+          },
+          "sameAs": [
+            "https://t.me/EFIM365",
+            "https://www.youtube.com/@efim365",
+            "https://rutube.ru/channel/42955504"
+          ]
+        },
+        {
+          "@type": "ProfessionalService",
+          "@id": "https://efim365.ru/#service",
+          "name": "EFIM365 — внедрение ELMA365",
+          "provider": {
+            "@id": "https://efim365.ru/#organization"
+          },
+          "areaServed": "RU",
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Услуги по автоматизации",
+            "itemListElement": [
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Разработка решений на ELMA365"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Интеграция ELMA365 с 1С и другими системами"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Архитектура и ревью решений ELMA365"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "DevOps и настройка инфраструктуры"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+    </script>
+
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -682,7 +770,7 @@
     <header>
         <div class="container header-inner">
             <a href="#" class="logo">
-                <img src="Лого.jpg" alt="EFIM365" />
+                <img src="logo.webp" alt="EFIM365" />
                 EFIM365
             </a>
             <nav class="nav-menu">
@@ -721,7 +809,7 @@
                 </div>
             </div>
             <div class="hero-image">
-                <img src="Шапка.png" alt="EFIM365" loading="lazy" />
+                <img src="hero.webp" alt="EFIM365" loading="lazy" />
             </div>
         </div>
     </section>
@@ -809,10 +897,10 @@
         <div class="container">
             <h2 class="section-title">Наши клиенты</h2>
             <div class="clients-grid">
-                <div class="client-item bg-f6"><img src="f6.png" alt="F6" /></div>
-                <div class="client-item white-bg"><img src="МИТТУ.jpeg" alt="КАМАЗ (МИТТУ)" /></div>
-                <div class="client-item white-bg"><img src="трайдент.png" alt="Трайдент ИСТ" /></div>
-                <div class="client-item bg-rogos"><img src="Рогос.jpg" alt="Рогос" /></div>
+                <div class="client-item bg-f6"><img src="f6.webp" alt="F6" /></div>
+                <div class="client-item white-bg"><img src="kama.webp" alt="КАМАЗ (МИТТУ)" /></div>
+                <div class="client-item white-bg"><img src="trident.webp" alt="Трайдент ИСТ" /></div>
+                <div class="client-item bg-rogos"><img src="rogos.webp" alt="Рогос" /></div>
             </div>
         </div>
     </section>
@@ -904,7 +992,7 @@
         <div class="container about-grid">
 
             <div class="about-photo">
-                <img src="Ефим.jpg" alt="Ефим Загребин" class="profile-photo" loading="lazy" />
+                <img src="efim.webp" alt="Ефим Загребин" class="profile-photo" loading="lazy" />
             </div>
 
             <div class="about-top">
@@ -937,8 +1025,8 @@
             </div>
 
             <div class="about-cert">
-                <a href="Сертификат.jpg" target="_blank" class="cert-link-wrapper">
-                    <img src="Сертификат.jpg" alt="Сертификат ELMA365" class="certificate-image" loading="lazy" />
+                <a href="certificate.webp" target="_blank" class="cert-link-wrapper">
+                    <img src="certificate.webp" alt="Сертификат ELMA365" class="certificate-image" loading="lazy" />
                 </a>
             </div>
 
@@ -995,7 +1083,7 @@
             </div>
         </section>
 
-        <img src="Лого.jpg" alt="EFIM365" class="contact-logo-large" />
+        <img src="logo.webp" alt="EFIM365" class="contact-logo-large" />
 
         <footer>
             <div class="container footer-inner">
